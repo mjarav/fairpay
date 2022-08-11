@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_11_181521) do
+ActiveRecord::Schema.define(version: 2022_08_11_185546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_bookings_on_service_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.text "description"
+    t.string "location"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.boolean "sunday"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +52,17 @@ ActiveRecord::Schema.define(version: 2022_08_11_181521) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "nickname"
+    t.string "language"
+    t.text "bio"
+    t.integer "credit"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "services"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "services", "users"
 end

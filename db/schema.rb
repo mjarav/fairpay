@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2022_08_13_105609) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.bigint "service_id", null: false
@@ -61,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_08_13_105609) do
 
   create_table "services", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.string "name"
     t.text "description"
     t.string "location"
@@ -73,6 +81,7 @@ ActiveRecord::Schema.define(version: 2022_08_13_105609) do
     t.boolean "sunday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_services_on_category_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
@@ -103,5 +112,6 @@ ActiveRecord::Schema.define(version: 2022_08_13_105609) do
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "services"
   add_foreign_key "reviews", "users"
+  add_foreign_key "services", "categories"
   add_foreign_key "services", "users"
 end

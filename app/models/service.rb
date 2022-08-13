@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
   belongs_to :user
+  belongs_to :category
   has_many :bookings, dependent: :destroy
 
   validates :name, :description, :location, presence: true
@@ -10,6 +11,5 @@ class Service < ApplicationRecord
       errors.add :base, "at least pick a day in a week"
     end
   end
-
 
 end

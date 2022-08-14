@@ -1,20 +1,19 @@
-<div>
-  <div class="row">
-    <div class="col">
+<div class="container"s>
   <div>
     <%= "This is the div for the search bar" %>
   </div>
-      <div class="service-card">
+
+    <div class="services">
       <% @services.each do |service| %>
-        <ul>
-          <li><%= service.category.image%></li>
-          <li><%= service.user.nickname %></li>
-          <li><%= service.category.name%></li>
-          <li><%= service.location %></li>
-        </ul>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div></div>
+        <div class="service-card">
+          <ul>
+            <li><%= service.category.image%></li>
+            <li><%= service.user.nickname %></li>
+            <li><%= service.category.name%></li>
+            <li><%= service.location %></li>
+          </ul>
+        </div>
+      <% end %>
+    <div>
+
 </div>

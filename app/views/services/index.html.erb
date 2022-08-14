@@ -6,10 +6,10 @@
     <div class="col">
       <% @services.each do |service| %>
         <ul>
-          <li><%= service.category.name%></li>
           <li><%= service.category.image%></li>
-          <li><%= service.name %></li>
           <li><%= service.user.nickname %></li>
+          <li><%= service.category.name%></li>
+          <li><%= service.location %></li>
         </ul>
 
       <% end %>

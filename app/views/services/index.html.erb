@@ -1,9 +1,10 @@
 <div>
+  <div class="row">
+    <div class="col">
   <div>
     <%= "This is the div for the search bar" %>
   </div>
-  <div class="row">
-    <div class="col">
+      <div class="service-card">
       <% @services.each do |service| %>
         <ul>
           <li><%= service.category.image%></li>
@@ -11,8 +12,8 @@
           <li><%= service.category.name%></li>
           <li><%= service.location %></li>
         </ul>
-
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div></div>

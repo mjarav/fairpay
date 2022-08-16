@@ -1,19 +1,21 @@
-.btn-action {
-  color: white;
-  border: 1px solid $gray;
-  background-color: $gray;
-  padding: 8px 24px;
+.searchbar {
+
   border-radius: 50px;
-  font-weight: lighter;
+  border: 2px solid $gray-fairpay;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+  padding: 8px;
+  margin: 24px 0px;
 }
 
-.btn-action:hover {
-  opacity: 1;
+.checkbox {
+  position: absolute;
+  transform: scale(0);
+
 }
 
-.btn-weekday {
+.checkbox + label {
+  cursor: pointer;
+  display: inline-block;
   color: $gray-fairpay;
   border: 2px solid $gray-fairpay;
   background-color: $light-gray-fairpay;
@@ -23,10 +25,10 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   font-size: 14px;
+  margin: 24px 0px;
 }
 
-.btn-weekday:hover {
+.checkbox:checked + label {
   color: white;
-  border: 2px solid white;
   background-color: $gray-fairpay;
 }

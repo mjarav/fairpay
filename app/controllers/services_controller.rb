@@ -39,7 +39,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy if @service.user == current_user
-    redirect_to service_path
+    redirect_to services_path
   end
 
   private

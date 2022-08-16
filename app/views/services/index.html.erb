@@ -1,19 +1,34 @@
-<div class="container"s>
+<div class="container">
   <div>
-    <%= "This is the div for the search bar" %>
+    <%= form_tag services_path, method: :get, class:'d-flex' do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control col-md-4 col-md-offset-4",
+        placeholder: "What are you looking for?"
+      %>
+      <div>
+        <%= button_tag(type: "submit", class: "btn btn-default") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+  <%# Option to pick up the the weekdays to search %>
 
-    <div class="services">
-      <% @services.each do |service| %>
-        <div class="service-card">
-          <ul>
-            <li><%= service.category.image%></li>
-            <li><%= service.user.nickname %></li>
-            <li><%= service.category.name%></li>
-            <li><%= service.location %></li>
-          </ul>
-        </div>
-      <% end %>
-    <div>
+  <div class="services">
+    <% @services.each do |service| %>
+      <div class="service-card">
+          <div class="service-img">
+            <%= image_tag("#{service.category.image}", alt: "Category illustration", style:"max-height: 100%; max-width: 100%;")%>
 
+          </div>
+          <%# <i class="fas fa-clock fa-s ml-2"></i> %>
+          <div class="service-info">
+            <h3><%= service.user.nickname %></h3>
+            <p><%= service.category.name%></p>
+            <p><%= service.location %></p>
+          </div>
+      </div>
+    <% end %>
+  <div>
 </div>

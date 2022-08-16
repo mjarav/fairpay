@@ -12,13 +12,13 @@ Category.destroy_all
 User.destroy_all
 
 puts "Creating categories..."
-education = Category.create!(name: "Education", image: "/clocklogo.png")
-care = Category.create!(name: "Care", image: "./public/fairpay-logo.png")
-transport = Category.create!(name: "Transport", image: "./public/fairpay-logo.png")
-consulting = Category.create!(name: "Consulting", image: "./public/fairpay-logo.png")
-cleaning = Category.create!(name: "Cleaning", image: "./public/fairpay-logo.png")
-home = Category.create!(name: "Home", image: "./public/fairpay-logo.png")
-miscellaneous = Category.create!(name: "Miscellaneous", image: "./public/fairpay-logo.png")
+education = Category.create!(name: "Education", image: "grammar.png")
+care = Category.create!(name: "Care", image: "charity.png")
+transport = Category.create!(name: "Transport", image: "trolley.png")
+consulting = Category.create!(name: "Consulting", image: "business.png")
+cleaning = Category.create!(name: "Cleaning", image: "sweep.png")
+home = Category.create!(name: "Home", image: "paint-brush.png")
+miscellaneous = Category.create!(name: "Miscellaneous", image: "clock.png")
 
 puts "Creating users..."
 carlos = User.create!(email: "carlos@gmail.com", password: "lewagon", first_name: "Carlos",

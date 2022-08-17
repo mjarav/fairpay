@@ -1,9 +1,9 @@
 class ServicesController < ApplicationController
   def index
-
-    if params[:query].present?
-      raise
-      @services = Service.global_search(params[:query])
+    if params[:monday].present?
+      # @services = Service.global_search(params[:monday])
+      @services = Service.where(params[:monday])
+      # @services = Service.global_search(params[:query])
     else
       @services = Service.all
     end

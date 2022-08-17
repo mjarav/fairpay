@@ -1,34 +1,17 @@
 .searchbar {
-
-  border-radius: 50px;
-  border: 2px solid $gray-fairpay;
-  opacity: 0.6;
-  padding: 8px;
-  margin: 24px 0px;
+  width: 80%;
+  border-radius: 50px 0 0 50px;
+  border-left: 2px solid $gray-fairpay;
+  border-top: 2px solid $gray-fairpay;
+  border-right: 1px solid $gray-fairpay;
+  border-bottom: 2px solid $gray-fairpay;
+  opacity: 0.4;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
 }
 
-.checkbox {
-  position: absolute;
-  transform: scale(0);
-
-}
-
-.checkbox + label {
-  cursor: pointer;
-  display: inline-block;
-  color: $gray-fairpay;
-  border: 2px solid $gray-fairpay;
-  background-color: $light-gray-fairpay;
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-weight: bold;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  font-size: 14px;
-  margin: 24px 0px;
-}
-
-.checkbox:checked + label {
-  color: white;
-  background-color: $gray-fairpay;
+.global-searchbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+  margin: 32px 0;
 }

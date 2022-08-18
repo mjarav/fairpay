@@ -1,10 +1,10 @@
 <div class="container">
   <%= simple_form_for(@service) do |f| %>
     <%= f.input :name, placeholder: 'Electrical Work' %>
-    <%= f.input :category_id, selected: 1, collection: Category.all  %>
+    <%= f.input :category_id, prompt: 'Please select a category', collection: Category.all  %>
     <%= f.input :location, placeholder: 'Berlin' %>
     <p class="py-1"><%= "Please choose your availability for this service:" %></p>
-    <ul class="list-inline">
+    <ul class="list-inline <%= 'form-control is-invalid string required my-0 pb-0' if @service.errors.added?(:base, 'Select at least one day') %>" >
       <li class="list-inline-item"><%= f.input :monday, as: :boolean %></li>
       <li class="list-inline-item"><%= f.input :tuesday, as: :boolean %></li>
       <li class="list-inline-item"><%= f.input :wednesday, as: :boolean %></li>
@@ -13,6 +13,7 @@
       <li class="list-inline-item"><%= f.input :saturday, as: :boolean %></li>
       <li class="list-inline-item"><%= f.input :sunday, as: :boolean %></li>
     </ul>
+    <div class="invalid-feedback d-block pb-3"><%= f.error :base %></div>
     <%= f.input :description %>
     <%= f.submit %>
   <% end %>

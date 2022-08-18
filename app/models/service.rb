@@ -3,8 +3,8 @@ class Service < ApplicationRecord
   belongs_to :category
   has_many :bookings, dependent: :destroy
 
-  validates :name, :description, :location, presence: true
-  validate :any_present?
+  validates :name, :description, :location, :category_id, presence: true
+  validate :any_present
 
   include PgSearch::Model
 
@@ -18,9 +18,9 @@ class Service < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  def any_present?
-    if %w(monday tuesday wednesday thursday friday saturday sunday).all?{|attr| self[attr].blank?}
-      errors.add :base, "at least pick a day in a week"
-    end
+  def any_present
+    errors.add(:base, 'Select at least one day') unless
+    monday? || tuesday? || wednesday? || thursday? || friday? ||
+    saturday? || sunday?
   end
 end

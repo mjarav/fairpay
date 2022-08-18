@@ -49,7 +49,7 @@ class ServicesController < ApplicationController
                                     :wednesday, :thursday, :friday, :saturday, :sunday)
   end
 
-  def set_bike
+  def set_service
     @service = Service.find(params[:id])
   end
 end

@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for(@service) do |f| %>
     <%= f.input :name, placeholder: 'Electrical Work' %>
-    <%= f.input :category_id, selected: 1, collection: Category.all  %>
+    <%= f.input :category_id, collection: Category.all  %>
     <%= f.input :location, placeholder: 'Berlin' %>
     <p class="py-1"><%= "Please choose your availability for this service:" %></p>
     <ul class="list-inline">

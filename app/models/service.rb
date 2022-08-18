@@ -9,7 +9,7 @@ class Service < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :global_search,
-    against: [:name, :description, :location, :monday],
+    against: [:name, :description, :location],
     associated_against: {
       user: [:email, :nickname, :first_name, :last_name, :language],
       category: :name

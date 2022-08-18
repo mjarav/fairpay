@@ -26,12 +26,6 @@ class ServicesController < ApplicationController
     @services = @services_collection if days_params_present?
   end
 
-private
-
-  def days_params_present?
-      params[:monday].present? || params[:tuesday].present? || params[:wednesday].present? || params[:thursday].present? || params[:friday].present? || params[:saturday].present? || params[:sunday].present?
-  end
-
   def new
     @service = Service.new
   end
@@ -66,6 +60,10 @@ private
   end
 
   private
+
+  def days_params_present?
+    params[:monday].present? || params[:tuesday].present? || params[:wednesday].present? || params[:thursday].present? || params[:friday].present? || params[:saturday].present? || params[:sunday].present?
+  end
 
   def service_params
     params.require(:service).permit(:name, :description, :category_id, :location, :monday, :tuesday,

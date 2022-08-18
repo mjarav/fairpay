@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h3>Name</h3>
+      <p><%= @service.user.nickname %></p>
+      <h3>Location</h3>
+      <p><%= @service.location %></p>
+      <h3>Service</h3>
+      <p><%= @service.name %></p>
+          <%= simple_form_for [@service, @booking] do |f| %>
+            <%= f.input :start_date, as: :date %>
+            <%= f.text_area :description%>
+            <%= f.submit %>
+          <% end %>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <%= simple_form_for(@service) do |f| %>
+    <%= f.input :name, placeholder: 'Electrical Work' %>
+    <%= f.input :category_id, collection: Category.all  %>
+    <%= f.input :location, placeholder: 'Berlin' %>
+    <p class="py-1"><%= "Please choose your availability for this service:" %></p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><%= f.input :monday, as: :boolean %></li>
+      <li class="list-inline-item"><%= f.input :tuesday, as: :boolean %></li>
+      <li class="list-inline-item"><%= f.input :wednesday, as: :boolean %></li>
+      <li class="list-inline-item"><%= f.input :thursday, as: :boolean %></li>
+      <li class="list-inline-item"><%= f.input :friday, as: :boolean %></li>
+      <li class="list-inline-item"><%= f.input :saturday, as: :boolean %></li>
+      <li class="list-inline-item"><%= f.input :sunday, as: :boolean %></li>
+    </ul>
+    <%= f.input :description %>
+    <%= f.submit %>
+  <% end %>
+</div>

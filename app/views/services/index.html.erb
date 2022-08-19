@@ -1,19 +1,32 @@
 <div class="container">
-  <div>
-    <%= form_tag services_path, method: :get, class:'d-flex' do %>
+  <div class="global-searchbar">
+    <%= form_tag services_path, method: :get, class:'d-flex .global-serachbar' do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control col-md-4 col-md-offset-4",
+        class: "searchbar col-md-4 col-md-offset-4",
         placeholder: "What are you looking for?"
-      %>
-      <div>
-        <%= button_tag(type: "submit", class: "btn btn-default") do %>
+    %>
+    <div class="dropdown">
+      <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        When?
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><%= check_box_tag 'monday'%><%= label_tag "monday", "Monday"%></li>
+        <li><%= check_box_tag 'tuesday'%><%= label_tag "tuesday", " Tuesday"%></li>
+        <li><%= check_box_tag 'wednesday'%><%= label_tag "wednesday", " Wednesday"%></li>
+        <li><%= check_box_tag 'thursday'%><%= label_tag "thursday", " Thursday"%></li>
+        <li><%= check_box_tag 'friday'%><%= label_tag " friday", " Friday"%></li>
+        <li><%= check_box_tag 'saturday'%><%= label_tag "saturday", " Saturday"%></li>
+        <li><%= check_box_tag 'sunday'%><%= label_tag "sunday", " Sunday"%></li>
+      </ul>
+    </div>
+    <div>
+      <%= button_tag(type: "submit", class: "btn btn-search") do %>
           <i class="fas fa-search"></i>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-  <%# Option to pick up the the weekdays to search %>
 
   <div class="services">
     <% @services.each do |service| %>
@@ -22,13 +35,15 @@
             <%= image_tag("#{service.category.image}", alt: "Category illustration", style:"max-height: 100%; max-width: 100%;")%>
 
           </div>
-          <%# <i class="fas fa-clock fa-s ml-2"></i> %>
+
           <div class="service-info">
+
             <h3><%= service.user.nickname %></h3>
+            <%= link_to service.name, service_path(service)%>
             <p><%= service.category.name%></p>
             <p><%= service.location %></p>
           </div>
       </div>
     <% end %>
-  <div>
+  </div>
 </div>

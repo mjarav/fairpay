@@ -44,3 +44,33 @@
   opacity: 0.4;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
 }
+
+.btn-call-action {
+  color: white;
+  border: 1px solid $red-fairpay;
+  background-color: $red-fairpay;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-action:hover {
+  opacity: 1;
+}
+
+.btn-call-action-reverse {
+  color: $gray;
+  border: 1px solid $red-fairpay;
+  background-color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-action:hover {
+  opacity: 1;
+}

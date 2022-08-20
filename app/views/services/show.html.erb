@@ -1,13 +1,18 @@
 <div class="container">
   <div class="service-show">
     <div class="show-img">
-      <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica", style: "object-fit: cover", alt: "Profile Picture")%>
+      <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica",
+          style: "object-fit: cover", alt: "Profile Picture")
+      %>
     </div>
-    <div class="card-body">
+    <div>
       <div class="show-headers">
-        <h1 class="card-title"><%=@service.name  %></h1>
-        <h3 class="card-title"><%=@service.user.nickname %></h3>
-        <p class="card-title"><em><%=@service.location  %></em></p>
+        <h2 class="card-title"><%=@service.name  %></h2>
+        <h4 class="card-title"><%=@service.user.nickname %></h3>
+        <p class="card-title">
+          <i class="fas fa-map-marker fa-lg"></i>
+          <em><%=@service.location  %></em>
+        </p>
       </div>
       <hr>
       <div class="weekdays-container">

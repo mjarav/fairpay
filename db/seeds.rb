@@ -10,6 +10,7 @@ puts "Cleaning the database..."
 Service.destroy_all
 Category.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 puts "Creating categories..."
 education = Category.create!(name: "Education", image: "grammar.png")
@@ -67,3 +68,14 @@ babysitting = Service.create!(name: "Babysitting", description: "I have already 
   care of babies and small children.",
  location: "Berlin", monday: false, tuesday: false, wednesday: false, thursday: false, friday: false,
  saturday: true, sunday: true, user_id: carla.id, category_id: care.id)
+
+puts "Creating bookings..."
+
+booking_1 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(2022, 4, 3), user_id: andrea.id, service_id: babysitting.id)
+booking_2 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(2022, 4, 3), user_id: carlos.id, service_id: electrical_advice.id)
+booking_1 = Booking.create(start_date: Date.new(2022, 2, 9), end_date: Date.new(2022, 2, 9), user_id: andrea.id, service_id: spanish_lessons.id)
+booking_2 = Booking.create(start_date: Date.new(2022, 8, 5), end_date: Date.new(2022, 8, 5), user_id: boris.id, service_id: electrical_work.id)
+
+
+
+puts "Done"

@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 40px;
+  & a:link {
+    text-decoration: none;
+  }
 }
 
 .service-card {
@@ -20,6 +23,7 @@
 
 .service-info {
   padding: 24px 16px  16px  16px;
+  color: $gray-fairpay;
   & h3 {
     margin: 0px 0px 16px 0px;
     white-space: nowrap;
@@ -30,16 +34,4 @@
 
 .service-info p {
   margin: 0px;
-}
-
-a:link {
-  text-decoration: none;
-  font-weight: bold;
-  color: $red-fairpay;
-}
-
-a:visited {
-  text-decoration: none;
-  color: $gray-fairpay;
-  font-weight: normal;
 }

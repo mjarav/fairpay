@@ -4,7 +4,6 @@ display: flex;
 justify-content: space-around;
 position: relative;
 padding: 12px;
-height: 300px;
 }
 
 .dashboard-hero-info {
@@ -35,7 +34,7 @@ height: 300px;
 
 .dashboard-card{
   overflow: hidden;
-  height: 120px;
+  height: 140px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;

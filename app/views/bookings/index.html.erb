@@ -21,6 +21,7 @@
                   <p><%= booking.service.name%> | <%= booking.service.location%></p>
                   <p>Provided by <strong><%= booking.user.first_name %></p></strong>
                   <p><%= booking.start_date.strftime("%b %d, %Y") %></p>
+                  <%= booking.format_status_for(:customer) %>
                 </div>
                 <% end %>
               </li>
@@ -29,21 +30,20 @@
       </div>
       <div class="col-6">
       <h3 class="dashboard-title">Received requests</h3>
-        <% if @my_bookings.blank? %>
+        <% if @service_bookings.empty? %>
           <p>Book your first service!</p>
         <% else %>
           <ul class= "list-group my-3">
-            <% @my_bookings.each do |my_booking| %>
-              <% my_booking.each do |booking|%>
+            <% @service_bookings.each do |booking| %>
               <li class= "dashboard-card">
                 <%= image_tag booking.service.category.image, width: 200 %>
                 <div class="dashboard-card-info">
                   <p><%= booking.service.name%> | <%= booking.service.location%></p>
                   <p>Requested by <strong><%= booking.user.first_name %></p></strong>
                   <p><%= booking.start_date.strftime("%b %d, %Y") %></p>
+                  <%= booking.format_status_for(:provider) %>
                 </div>
               </li>
-              <% end %>
             <% end %>
           </ul>
         <% end %>

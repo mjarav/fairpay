@@ -1,0 +1,32 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div d-flex class="row justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+      <div class="form_card">
+        <div class="row justify-content-between text-left">
+          <!--<h3>Name</h3>
+          <p><%= @service.user.nickname %></p>-->
+          <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Provider</label><h2><%= @service.user.nickname %></h2></div>
+          <!--<h3>Location</h3>
+          <p><%= @service.location %></p>-->
+          <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Location</label><h2><%= @service.location %></h2></div>
+        </div>
+        <div class="row justify-content-between text-left">
+          <!--<h3>Service</h3>
+          <p><%= @service.name %></p>-->
+          <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Service</label><h2><%= @service.name %></h2></div>
+          <div class="form-group col-sm-6 p-3 flex-column d-flex">
+              <%= simple_form_for [@service, @booking] do |f| %>
+                <%= f.input :start_date, as: :datetime, class:"form-control-label"%>
+          </div>
+          <div class="form-group col-12 p-3 flex-column d-flex">
+                <label class="form-control-label">Description</label>
+                <%= f.text_area :description, class:"text-area"%>
+          </div>
+          <div class="row justify-content-center">
+                <div class="form-group col-sm-6 p-3"><%= f.submit %></div>
+              <% end %>
+        </div>
+        </div>
+     </div>
+  </div>
+</div>

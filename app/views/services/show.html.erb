@@ -7,7 +7,7 @@
     </div>
     <div>
       <div class="show-headers">
-        <h2 class="card-title"><%=@service.name  %></h2>
+        <h1 class="card-title"><%=@service.name  %></h1>
         <p class="card-title">
           <i class="fas fa-user fa-lg"></i>
           <%=@service.user.nickname %>
@@ -15,7 +15,7 @@
 
         <p class="card-title">
           <i class="fas fa-map-marker fa-lg"></i>
-          <em><%=@service.location  %></em>
+          <%=@service.location %>
         </p>
       </div>
       <hr>
@@ -67,10 +67,10 @@
         <p class="card-text"><%=@service.description %></p>
       </div>
       <div class="show-buttons">
-        <%= link_to "Send your resquest!",  new_service_booking_path, class: "btn btn-call-action" %>
+        <%= link_to "Send your resquest!",  new_service_booking_path(@service), class: "btn btn-call-action" %>
         <%= link_to "Let´s chat", root_path, class: "btn btn-call-action-reverse" %>
 
       </div>
     </div>
   </div>
-</div>
+</div>s

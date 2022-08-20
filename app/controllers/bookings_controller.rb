@@ -1,14 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_service, only: [:new, :create]
 
-    def index
-    # @bookings = Booking.all
-    @bookings = Booking.where(user_id: current_user)
-    @my_bookings = []
-    @my_services = Service.where(user_id: current_user).each do |my_service|
-      @my_bookings << my_service.bookings
-    end
-    @my_bookings
+  def index
+    @bookings = current_user.bookings.includes(service: :category)
+
+    @service_bookings = current_user.service_bookings.includes(service: :category)
   end
 
   def update
@@ -21,7 +17,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-
   end
 
   def create
@@ -42,5 +37,4 @@ class BookingsController < ApplicationController
   def set_service
     @service = Service.find(params[:service_id])
   end
-
 end

@@ -1,16 +1,42 @@
 .form_card{
+    background-color: $gray-fairpay;
     padding: 30px 40px;
     margin-top: 60px;
     margin-bottom: 60px;
     border: none ;
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background-color: #FBFBFB;
   }
+
+.detail-container{
+    padding: 5px 10px;
+    border: none ;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
 
 .text-area{
   overflow:auto;
   resize:none;
+  padding: 8px 15px;
+  border-radius: 5px !important;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-size: 18px !important;
+  font-weight: 300;
+  box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
 }
 
-.form-control-label{
-  padding-left: 30%;
+.text-left {
+  text-align: left!important;
+}
+
+label {
+  font-size: 18px;
+}
+
+p{
+  font-size: 20px;
 }

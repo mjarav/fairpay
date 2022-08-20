@@ -1,5 +1,4 @@
 .searchbar {
-  width: 80%;
   border-radius: 50px 0 0 50px;
   border-left: 2px solid $gray-fairpay;
   border-top: 2px solid $gray-fairpay;
@@ -7,11 +6,24 @@
   border-bottom: 2px solid $gray-fairpay;
   opacity: 0.4;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
+  padding: 0 16px;
 }
 
 .global-searchbar {
   display: flex;
   align-items: baseline;
-  justify-content: left;
+  justify-content: center;
   margin: 32px 0;
+}
+
+.searchbar {
+  width: 400px;
+  border-radius: 50px 0 0 50px;
+  border-left: 2px solid $gray-fairpay;
+  border-top: 2px solid $gray-fairpay;
+  border-right: 1px solid $gray-fairpay;
+  border-bottom: 2px solid $gray-fairpay;
+  opacity: 0.4;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
+  justify-content: center;
 }

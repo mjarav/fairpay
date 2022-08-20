@@ -1,11 +1,11 @@
 <div class="container">
   <div class="global-searchbar">
-    <%= form_tag services_path, method: :get, class:'d-flex .global-serachbar' do %>
+    <%= form_tag services_path, method: :get, class:'d-flex' do %>
       <%= text_field_tag :query,
         params[:query],
         class: "searchbar col-md-4 col-md-offset-4",
-        placeholder: "What are you looking for?"
-    %>
+        placeholder: "Search for a service, category, location..."
+      %>
     <div class="dropdown">
       <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         When?

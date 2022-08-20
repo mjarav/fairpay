@@ -1,0 +1,76 @@
+4<div class="container">
+  <div class="service-show">
+    <div class="show-img">
+      <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica",
+          style: "object-fit: cover", alt: "Profile Picture")
+      %>
+    </div>
+    <div>
+      <div class="show-headers">
+        <h1 class="card-title"><%=@service.name  %></h1>
+        <p class="card-title">
+          <i class="fas fa-user fa-lg"></i>
+          <%=@service.user.nickname %>
+        </p>
+
+        <p class="card-title">
+          <i class="fas fa-map-marker-alt fa-lg"></i>
+          <%=@service.location %>
+        </p>
+      </div>
+      <hr>
+      <div class="weekdays-container">
+        <% if @service.monday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+        <p>Mon</p>
+        <% if @service.tuesday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+          <p>Tue</p>
+        <% if @service.wednesday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+        <p>Wed</p>
+        <% if @service.thursday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+        <p>Thu</p>
+        <% if @service.friday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+        <p>Fri</p>
+        <% if @service.saturday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+        <p>Sat</p>
+        <% if @service.sunday %>
+          <i class="fas fa-clock fa-lg week-item"></i>
+        <% else %>
+          <i class="far fa-circle fa-lg week-item"></i>
+        <% end %>
+        <p>Sun</p>
+      </div>
+      <div class="show-description">
+        <p class="card-text"><%=@service.description %></p>
+      </div>
+      <div class="show-buttons">
+        <%= link_to "Send your request!",  new_service_booking_path(@service), class: "btn btn-call-action" %>
+        <%= link_to "Let´s chat", root_path, class: "btn btn-call-action-reverse" %>
+
+      </div>
+    </div>
+  </div>
+</div>s

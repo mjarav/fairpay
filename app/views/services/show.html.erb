@@ -1,4 +1,4 @@
-<div class="container">
+4<div class="container">
   <div class="service-show">
     <div class="show-img">
       <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica",
@@ -8,7 +8,11 @@
     <div>
       <div class="show-headers">
         <h2 class="card-title"><%=@service.name  %></h2>
-        <h4 class="card-title"><%=@service.user.nickname %></h3>
+        <p class="card-title">
+          <i class="fas fa-user fa-lg"></i>
+          <%=@service.user.nickname %>
+        </p>
+
         <p class="card-title">
           <i class="fas fa-map-marker fa-lg"></i>
           <em><%=@service.location  %></em>
@@ -63,8 +67,8 @@
         <p class="card-text"><%=@service.description %></p>
       </div>
       <div class="show-buttons">
-        <a href="#" class="btn btn-call-action">Send your resquest!</a>
-        <a href="#" class="btn btn-call-action-reverse">Let´s chat</a>
+        <%= link_to "Send your resquest!",  new_service_booking_path, class: "btn btn-call-action" %>
+        <%= link_to "Let´s chat", root_path, class: "btn btn-call-action-reverse" %>
 
       </div>
     </div>

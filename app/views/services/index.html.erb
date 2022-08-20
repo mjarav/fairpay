@@ -32,16 +32,15 @@
     <% @services.each do |service| %>
       <div class="service-card">
           <div class="service-img">
-            <%= image_tag("#{service.category.image}", alt: "Category illustration", style:"max-height: 100%; max-width: 100%;")%>
-
+            <%= image_tag("#{service.category.image}", alt: "Category illustration",
+            style:"max-height: 100%; max-width: 100%;")%>
           </div>
 
           <div class="service-info">
-
-            <h3><%= service.user.nickname %></h3>
-            <%= link_to service.name, service_path(service)%>
             <p><%= service.category.name%></p>
-            <p><%= service.location %></p>
+            <h3><%= link_to service.name, service_path(service)%></h3>
+            <p><i class="fas fa-user"></i> <%= service.user.nickname %></p>
+            <p><i class="fas fa-map-marker-alt"></i> <%= service.location %></p>
           </div>
       </div>
     <% end %>

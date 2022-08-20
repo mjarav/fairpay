@@ -2,23 +2,31 @@
 background-color: #ECECEC;
 display: flex;
 justify-content: space-around;
-position: relative;
 padding: 12px;
+position: relative;
+align-items: center;
+height: 180px;
 }
 
-.dashboard-hero-info {
+.dashboard-hero-info{
   display: block;
   justify-content: center;
   text-align: center;
   position: absolute;
+  align-items: center;
 }
 
 .dashboard-hero-credit{
+  display: block;
+  justify-content: center;
+  text-align: center;
   margin-left: 50%;
+}
+
+.dashboard-hero-credit h2{
   background-color: white;
   border-radius: 50%;
   padding: 10px 20px;
-  text-align: center;
 }
 
 .dashboard{
@@ -41,6 +49,9 @@ padding: 12px;
   align-items: center;
   border-radius: 4px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 .dashboard-card img {
@@ -51,4 +62,15 @@ padding: 12px;
 
 .dashboard-card .dashboard-card-info{
   padding: 16px;
+  position: absolute;
+  left: 120px;
+  top: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-card .btn-call-action{
+  position: absolute;
+  right: 20px;
+  top: 40px;
 }

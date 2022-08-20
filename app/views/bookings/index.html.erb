@@ -3,7 +3,10 @@
     <h3>Hey <%= current_user.first_name %>!</h3>
     <p>Take a look at your dashboard</p>
   </div>
-  <h2 class= "dashboard-hero-credit"><%= current_user.credit %></h2>
+  <div class= "dashboard-hero-credit">
+    <h2><%= current_user.credit %></h2>
+    <p>Credits</p>
+  </div>
 </div>
 <div class="dashboard">
   <div class="container">
@@ -18,11 +21,12 @@
               <li class= "dashboard-card">
                 <%= image_tag booking.service.category.image, width: 200 %>
                 <div class="dashboard-card-info">
-                  <p><%= booking.service.name%> | <%= booking.service.location%></p>
+                  <p><%= booking.service.name%></p>
+                  <p><%= booking.service.location%></p>
                   <p>Provided by <strong><%= booking.user.first_name %></p></strong>
                   <p><%= booking.start_date.strftime("%b %d, %Y") %></p>
-                  <%= booking.format_status_for(:customer) %>
                 </div>
+               <button class="btn-call-action"><%= booking.format_status_for(:customer) %></button>
                 <% end %>
               </li>
           </ul>
@@ -38,11 +42,12 @@
               <li class= "dashboard-card">
                 <%= image_tag booking.service.category.image, width: 200 %>
                 <div class="dashboard-card-info">
-                  <p><%= booking.service.name%> | <%= booking.service.location%></p>
+                  <p><%= booking.service.name%></p>
+                  <p><%= booking.service.location%></p>
                   <p>Requested by <strong><%= booking.user.first_name %></p></strong>
                   <p><%= booking.start_date.strftime("%b %d, %Y") %></p>
-                  <%= booking.format_status_for(:provider) %>
                 </div>
+                <button class="btn-call-action"><%= booking.format_status_for(:provider) %></button>
               </li>
             <% end %>
           </ul>

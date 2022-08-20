@@ -1,0 +1,52 @@
+.service-show {
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
+  width: 40%;
+  margin: 40px auto;
+  float: none;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.show-img {
+  display: flex;
+  justify-content: center;
+}
+
+.show-img img {
+  border: 1px solid white;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+  margin: 40px 20px;
+}
+
+.show-headers {
+  margin: 40px 8px 24px 24px;
+  & h1 {
+    margin-bottom: 16px;
+  }
+}
+
+.card-title {
+  margin-bottom: 12px;
+}
+
+.weekdays-container {
+  display: flex;
+  margin: 24px;
+  & .week-item {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.show-description {
+  margin: 24px;
+}
+
+.show-buttons {
+  margin: 24px;
+}

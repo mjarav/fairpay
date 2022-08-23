@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5 mt-3">
   <%= simple_form_for(@service) do |f| %>
     <%= f.input :name, placeholder: 'Electrical Work' %>
     <%= f.input :category_id, prompt: 'Please select a category', collection: Category.all  %>
@@ -15,6 +15,6 @@
     </ul>
     <div class="invalid-feedback d-block pb-3"><%= f.error :base %></div>
     <%= f.input :description %>
-    <%= f.submit %>
+    <%= f.submit class: 'btn-call-action' %>
   <% end %>
 </div>

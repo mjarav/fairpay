@@ -16,7 +16,7 @@
         <h1 class="card-title"><%=@service.name  %></h1>
         <p class="card-title">
           <i class="fas fa-user fa-lg"></i>
-          <%=@service.user.nickname %>
+          <%=@service.user.first_name %> <%=@service.user.last_name %>
         </p>
 
         <p class="card-title">
@@ -75,7 +75,6 @@
       <div class="show-buttons">
         <%= link_to "Send your request!",  new_service_booking_path(@service), class: "btn btn-call-action" %>
         <%= link_to "Let's chat", root_path, class: "btn btn-call-action-reverse" %>
-
       </div>
     </div>
   </div>

@@ -27,7 +27,7 @@
     <div class="col-6 my-5">
       <h3 class="dashboard-title">Offered services</h3>
       <ul><% @my_services.each do |my_service| %>
-        <li class=""><%= my_service.name%></li>
+        <li class="profile-service"><%=link_to my_service.name, service_path(my_service.id) %></li>
         <% end %>
       </ul>
     </div>

@@ -35,7 +35,7 @@
     margin-bottom: 20px;
     font-weight: light;
     font-size: 22px;
-    color: $red-fairpay;
+    color: $gray-fairpay;
   }
 
   .profile-media {
@@ -62,5 +62,14 @@
   }
 
   .profile-description {
-    text-align: center;
+    text-align: start;
+  }
+
+  .profile-service a{
+    text-decoration: none;
+    color: $red-fairpay;
+    }
+
+  .profile-service a:hover{
+    color: $gray-fairpay;
   }

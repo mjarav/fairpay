@@ -1,4 +1,11 @@
 <div class= "profile-hero">
+  <div class="profile-edit">
+  <% if @user == current_user %>
+      <%= link_to edit_user_path do %>
+        <i class="fas fa-user-edit fa-lg"></i>
+      <% end %>
+    <% end %>
+  </div>
   <div class= "profile-hero-info">
     <%= image_tag("https://images.generated.photos/IXPfgvvpicEFJcU7dr813sEO01yT6-vzoLpVCBD1gUY/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDYwMjI3LmpwZw.jpg", style: "object-fit: cover", alt: "Profile Picture")%>
     <h4><%= @user.first_name %> <%= @user.last_name %></h4>
@@ -14,7 +21,7 @@
   <div class="row">
     <div class="col-6 border-end border-secondary border-2 my-5">
       <h3 class="dashboard-title">Description</h3>
-      <p class = "profile-description" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet soluta dolorum iusto saepe esse officia, sed porro repellat eligendi explicabo, ullam, repellendus expedita. Quaerat non asperiores cupiditate consequuntur cum consequatur!</p>
+      <p class = "profile-description"><%= @user.bio %></p>
 
     </div>
     <div class="col-6 my-5">

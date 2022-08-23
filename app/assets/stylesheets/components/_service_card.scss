@@ -4,6 +4,17 @@
   grid-gap: 20px;
 }
 
+.service-head{
+  position: relative;
+}
+
+.service-head i{
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color: $gray-fairpay;
+}
+
 .service-card {
   border-radius: 8px;
   position: relative;

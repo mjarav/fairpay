@@ -25,13 +25,13 @@ class BookingsController < ApplicationController
     @booking.service = Service.find(params[:service_id])
     @booking.save!
 
-    redirect_to service_path(@service), notice: "Your booking has been created"
+    redirect_to bookings_path, notice: "Your booking has been created"
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start, :end, :user, :service_id)
+    params.require(:booking).permit(:start_date, :end, :user, :service_id)
   end
 
   def set_service

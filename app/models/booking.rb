@@ -2,6 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :service
 
+
   enum status: [:pending, :declined, :accepted, :completed]
 
   def format_status_for(user_type)
@@ -9,4 +10,15 @@ class Booking < ApplicationRecord
 
     status.capitalize
   end
+
+  private
+
+def start_date_in_future
+  return if start_date.blank?
+  return if start_date >= Date.current
+  errors.add(:start_date, :invalid)
+end
+
+
+
 end

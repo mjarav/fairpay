@@ -11,15 +11,13 @@
           <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Service</label><p class="detail-container"><%= @service.name %></p></div>
           <div class="form-group col-sm-6 p-3 flex-column d-flex">
               <%= simple_form_for [@service, @booking] do |f| %>
-                <%= f.input :start_date, as: :string, label: "Select a date", required: true, input_html: {class: "datepicker detail-container"} %>
-        </div>
-          <div class="form-group col-12 p-3 flex-column d-flex">
-                <label class="form-control-label">Message</label>
-                <%= f.text_area :description, class:"text-area"%>
-          </div>
-        </div>
-                <%= f.submit %>
-                <% end %>
+                <%= f.input :start_date, as: :string, label: "Select a date", required: true, input_html: {class: "datepicker detail-container"}  %>
+                  <div class="form-group col-12 p-3 flex-column d-flex">
+                        <label class="form-control-label">Message</label>
+                        <%= f.text_area :description, class:"text-area" %>
+                  </div>
+              <%= f.submit %>
+              <% end %>
         </div>
      </div>
   </div>

@@ -22,7 +22,7 @@
                 <%= image_tag booking.service.category.image, width: 200 %>
                 <div class="dashboard-card-info">
                   <h5><%= booking.service.name%></h5>
-                  <p><%= booking.start_date.strftime("%b %d, %Y") %></p>
+                  <p><%= booking.start_date%></p>
                   <p><%= booking.service.location%></p>
                 </div>
                <button class="btn-call-action"><%= booking.format_status_for(:customer) %></button>
@@ -42,7 +42,7 @@
                 <%= image_tag booking.service.category.image, width: 200 %>
                 <div class="dashboard-card-info">
                   <h5><%= booking.service.name%></h5>
-                  <p><%= booking.start_date.strftime("%b %d, %Y") %></p>
+                  <p><%= booking.start_date%></p>
                   <p><%= booking.service.location%></p>
                   <a>Requested by <%= link_to booking.user.first_name, booking.user %></a>
                 </div>

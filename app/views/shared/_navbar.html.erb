@@ -19,7 +19,11 @@
               <%= link_to "Dashboard", bookings_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <%= image_tag "https://images.generated.photos/IXPfgvvpicEFJcU7dr813sEO01yT6-vzoLpVCBD1gUY/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDYwMjI3LmpwZw.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% if current_user.photo.attached? %>
+                  <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                   <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "New service", new_service_path, class: "dropdown-item" %>
                 <%= link_to "Messages", '#', class: "dropdown-item" %>

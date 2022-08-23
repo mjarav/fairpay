@@ -3,6 +3,7 @@
     <%= f.input :first_name %>
     <%= f.input :last_name  %>
     <%= f.input :bio  %>
-    <%= f.submit %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: 'btn-call-action' %>
   <% end %>
 </div>

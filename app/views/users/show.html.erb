@@ -1,0 +1,35 @@
+<div class= "profile-hero">
+  <div class="profile-edit">
+  <% if @user == current_user %>
+      <%= link_to edit_user_path do %>
+        <i class="fas fa-user-edit fa-lg"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div class= "profile-hero-info">
+    <%= image_tag("https://images.generated.photos/IXPfgvvpicEFJcU7dr813sEO01yT6-vzoLpVCBD1gUY/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDYwMjI3LmpwZw.jpg", style: "object-fit: cover", alt: "Profile Picture")%>
+    <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+    <ul class="profile-media">
+      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6 border-end border-secondary border-2 my-5">
+      <h3 class="dashboard-title">Description</h3>
+      <p class = "profile-description"><%= @user.bio %></p>
+
+    </div>
+    <div class="col-6 my-5">
+      <h3 class="dashboard-title">Offered services</h3>
+      <ul><% @my_services.each do |my_service| %>
+        <li class="profile-service"><%=link_to my_service.name, service_path(my_service.id) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

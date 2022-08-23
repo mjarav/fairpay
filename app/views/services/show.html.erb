@@ -1,9 +1,15 @@
 <div class="container">
   <div class="service-show">
-    <div class="show-img">
-      <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica",
-          style: "object-fit: cover", alt: "Profile Picture")
-      %>
+    <div class="service-head">
+      <% if @service.user == current_user %>
+        <%= link_to edit_service_path do %>
+          <i class="fas fa-edit fa-lg"></i>
+        <% end %>
+      <% end %>
+        <div class="show-img">
+        <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica",
+        style: "object-fit: cover", alt: "Profile Picture")%>
+      </div>
     </div>
     <div>
       <div class="show-headers">
@@ -68,7 +74,7 @@
       </div>
       <div class="show-buttons">
         <%= link_to "Send your request!",  new_service_booking_path(@service), class: "btn btn-call-action" %>
-        <%= link_to "Let´s chat", root_path, class: "btn btn-call-action-reverse" %>
+        <%= link_to "Let's chat", root_path, class: "btn btn-call-action-reverse" %>
       </div>
     </div>
   </div>

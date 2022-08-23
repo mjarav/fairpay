@@ -6,7 +6,3 @@ const initFlatpickr = () => {
 }
 
 export { initFlatpickr };
-
-{
-  minDate: "today"
-};

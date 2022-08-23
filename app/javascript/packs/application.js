@@ -22,11 +22,11 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 // Called after every non-initial page load
-// document.addEventListener('turbolinks:render', () =>
-// initFlatpickr(),
-// );
+document.addEventListener('turbolinks:render', () =>
+   initFlatpickr(),
+ );
 
 
-// document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbolinks:load', () => {
 
-// });
+ });

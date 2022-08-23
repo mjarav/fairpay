@@ -2,7 +2,6 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :service
 
-  validates :start_date, presence: true
 
   enum status: [:pending, :declined, :accepted, :completed]
 
@@ -11,6 +10,15 @@ class Booking < ApplicationRecord
 
     status.capitalize
   end
+
+  private
+
+def start_date_in_future
+  return if start_date.blank?
+  return if start_date >= Date.current
+  errors.add(:start_date, :invalid)
+end
+
 
 
 end

@@ -15,3 +15,22 @@
   justify-content: left;
   margin: 32px 0;
 }
+
+.home-searchbar {
+  width: 100%;
+  border-radius: 50px 0 0 50px;
+  border-left: 2px solid $gray-fairpay;
+  border-top: 2px solid $gray-fairpay;
+  border-right: 1px solid $gray-fairpay;
+  border-bottom: 2px solid $gray-fairpay;
+  opacity: 1;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
+}
+
+.homeglobal-searchbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+  margin: 32px 0;
+  padding: 0px 50px 0px 0px;
+}

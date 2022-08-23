@@ -1,3 +1,4 @@
+
 import flatpickr from "flatpickr";
 
 const initFlatpickr = () => {
@@ -5,3 +6,7 @@ const initFlatpickr = () => {
 }
 
 export { initFlatpickr };
+
+{
+  minDate: "today"
+};

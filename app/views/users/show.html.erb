@@ -7,7 +7,12 @@
     <% end %>
   </div>
   <div class= "profile-hero-info">
-    <%= image_tag("https://images.generated.photos/IXPfgvvpicEFJcU7dr813sEO01yT6-vzoLpVCBD1gUY/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDYwMjI3LmpwZw.jpg", style: "object-fit: cover", alt: "Profile Picture")%>
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 200, width: 200 %>
+    <% else %>
+      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg",
+        style: "object-fit: cover", alt: "Profile Picture") %>
+    <% end %>
     <h4><%= @user.first_name %> <%= @user.last_name %></h4>
     <ul class="profile-media">
       <li><a href="#"><i class="fab fa-instagram"></i></a></li>

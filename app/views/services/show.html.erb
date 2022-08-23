@@ -12,8 +12,12 @@
       <% end %>
       </div>
         <div class="show-img">
-        <%= image_tag("https://kitt.lewagon.com/placeholder/users/cookiemonica",
-        style: "object-fit: cover", alt: "Profile Picture")%>
+          <% if @service.user.photo.attached? %>
+            <%= cl_image_tag @service.user.photo.key, height: 200, width: 200 %>
+          <% else %>
+            <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg",
+              style: "object-fit: cover", alt: "Profile Picture") %>
+          <% end %>
       </div>
     </div>
     <div>

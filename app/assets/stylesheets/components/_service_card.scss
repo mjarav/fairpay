@@ -1,7 +1,10 @@
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 40px;
+  & a:link {
+    text-decoration: none;
+  }
 }
 
 .service-card {
@@ -9,45 +12,31 @@
   position: relative;
   overflow: hidden;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
-  height:400px;
+  height:420px;
 }
 
 .service-img {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $green-fairpay;
+
 }
 
 .service-info {
-  margin: 8px;
+  padding: 24px 16px  16px  16px;
+  color: $gray-fairpay;
+  & h3 {
+    margin: 0px 0px 16px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .service-info p {
   margin: 0px;
 }
-
-// This is the text in the service-card
-// .service-infos {
-//   position: relative;
-// // This is the button to open the service details. It´s hidden until you hover
-// // user a favicon in the html <i class="fas fa-pen fa-xs ml-2"></i>
-//   i {
-//     position: absolute;
-//     top: -13px;
-//     right: 5px;
-//     border: 1px solid white;
-//     border-radius: 50%;
-//     padding: 5px;
-//     background: black;
-//     color: white;
-//     display: none;
-//     &:hover {
-//       cursor: pointer;
-//     }
-//   }
-//   &:hover {
-//     i {
-//       display: block;
-//     }
-//   }
-// }

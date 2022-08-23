@@ -19,7 +19,10 @@
     </div>
     <div class="col-6 my-5">
       <h3 class="dashboard-title">Offered services</h3>
-
+      <ul><% @my_services.each do |my_service| %>
+        <li class=""><%= my_service.name%></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

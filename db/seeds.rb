@@ -115,7 +115,7 @@ electrical_work = Service.create!(name: "Electrical work", description: "I can h
 
 electrical_advice = Service.create!(name: "Teaching basics on electricity", description: "I can teach
   how to install lamps and solve any question you might have around electric equipment",
-  location: "Berlin, Potsdam and Remote", monday: false, tuesday: true, wednesday: false,
+  location: "Potsdam and Remote", monday: false, tuesday: true, wednesday: false,
   thursday: false, friday: false, saturday: true, sunday: true, user_id: andrea.id, category_id: education.id)
 
 tax_advice = Service.create!(name: "Tax advice", description: "If you need help doing your personal tax declaration

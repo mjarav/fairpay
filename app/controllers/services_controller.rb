@@ -55,11 +55,11 @@ class ServicesController < ApplicationController
   end
 
   def show
-
   end
 
   def destroy
     @service.destroy if @service.user == current_user
+
     redirect_to services_path
   end
 

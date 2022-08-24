@@ -6,7 +6,7 @@
         <%= link_to edit_service_path do %>
           <i class="fas fa-edit"></i>
         <% end %></li>
-        <li><%=link_to services_path(@service), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-black" do %>
+        <li><%=link_to service_path(@service), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-black" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %></li>
       <% end %>

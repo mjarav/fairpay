@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_service, only: [:new, :create]
+  before_action :set_service, only: [:new, :create, :show]
 
   def index
     @bookings = current_user.bookings.includes(service: :category)
@@ -7,10 +7,20 @@ class BookingsController < ApplicationController
     @service_bookings = current_user.service_bookings.includes(service: :category)
   end
 
-  def update
-    @my_booking = Booking.find(params[:id])
-    @my_booking.confirmation = true
-    @my_booking.save
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.accept!
+
+    redirect_to bookings_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.decline!
 
     redirect_to bookings_path
   end

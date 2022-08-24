@@ -4,8 +4,10 @@
     <div class="row justify-content-evenly">
       <div class="col-4">
         <p class="booking-confirmation-details">
-          <i class="fas fa-user"></i>
-          <%=@booking.user.first_name %> <%=@booking.user.last_name %></p>
+          <%=link_to user_path(@service.user) do %>
+            <i class="fas fa-user"></i>
+            <%=@booking.user.first_name %> <%=@booking.user.last_name %></p>
+          <% end %>
           <p class="booking-confirmation-details">
             <i class="fas fa-tasks"></i>
             <%= @service.name %></p>
@@ -23,8 +25,8 @@
       </div>
       <div class="booking-confirmation-buttons">
         <% if @booking.status == "pending" %>
-          <%= link_to "Decline", "#", method: :patch, class:"btn btn-call-action-reverse"%>
-          <%= link_to "Accept", "#", method: :patch, class:"btn btn-call-action"%>
+          <%= link_to "Decline", decline_booking_path(@booking), method: :post, class:"btn btn-call-action-reverse"%>
+          <%= link_to "Accept", accept_booking_path(@booking), method: :post, class:"btn btn-call-action"%>
         <% end %>
       </div>
     </div>

@@ -54,6 +54,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  width: 120px;
 }
 
 .btn-action:hover {
@@ -61,7 +62,7 @@
 }
 
 .btn-call-action-reverse {
-  color: $gray;
+  color: $red-fairpay;
   border: 1px solid $red-fairpay;
   background-color: white;
   padding: 8px 24px;
@@ -69,6 +70,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  width: 120px;
 }
 
 .btn-action:hover {

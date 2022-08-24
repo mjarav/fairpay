@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   resources :services do
     resources :bookings, only: [:new, :create, :show]
   end
-  resources :bookings, only: [:index, :update]
+  resources :bookings, only: [:index] do
+    member do
+      post :accept
+      post :decline
+    end
+  end
 end

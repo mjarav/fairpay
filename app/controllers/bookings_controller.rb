@@ -40,9 +40,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.service = Service.find(params[:service_id])
-    @booking.save!
-
-    redirect_to bookings_path, notice: "Your booking has been created"
+    if @booking.save
+      redirect_to bookings_path, notice: "Your booking has been created"
+    else
+      render 'new'
+    end
   end
 
   private

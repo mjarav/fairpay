@@ -1,10 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_service, only: [:new, :create]
+  before_action :set_service, only: [:new, :create, :show]
 
   def index
     @bookings = current_user.bookings.includes(service: :category)
 
     @service_bookings = current_user.service_bookings.includes(service: :category)
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   def update

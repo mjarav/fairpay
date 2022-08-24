@@ -25,7 +25,7 @@
                   <p><%= booking.start_date.strftime("%A, %b %d")%></p>
                   <p><%= booking.service.location%></p>
                 </div>
-               <button class="btn-call-action"><%= booking.format_status_for(:customer) %></button>
+               <button class="btn-dashboard"><%= booking.format_status_for(:customer) %></button>
                 <% end %>
               </li>
           </ul>
@@ -46,7 +46,7 @@
                   <p><%= booking.service.location%></p>
                   <a>Requested by <%= link_to booking.user.first_name, booking.user %></a>
                 </div>
-                <button class="btn-call-action"><%= booking.format_status_for(:provider) %></button>
+                <button class="btn-dashboard"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
               </li>
             <% end %>
           </ul>

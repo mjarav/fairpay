@@ -1,13 +1,12 @@
 <div class="container">
   <div class="booking-confirmation">
-    <h3><%= @booking.user.first_name %> needs your service!</h3>
+    <h3 class="booking-confirmation-title"><%=link_to user_path(@booking.user) do %>
+      <%= @booking.user.first_name %><% end %> needs your service!</h3>
     <div class="row justify-content-evenly">
       <div class="col-4">
         <p class="booking-confirmation-details">
-          <%=link_to user_path(@service.user) do %>
             <i class="fas fa-user"></i>
             <%=@booking.user.first_name %> <%=@booking.user.last_name %></p>
-          <% end %>
           <p class="booking-confirmation-details">
             <i class="fas fa-tasks"></i>
             <%= @service.name %></p>
@@ -25,8 +24,8 @@
       </div>
       <div class="booking-confirmation-buttons">
         <% if @booking.status == "pending" %>
-          <%= link_to "Decline", decline_booking_path(@booking), method: :post, class:"btn btn-call-action-reverse"%>
-          <%= link_to "Accept", accept_booking_path(@booking), method: :post, class:"btn btn-call-action"%>
+          <%= link_to "Decline", decline_booking_path(@booking), method: :post, class:"btn-call-action-reverse"%>
+          <%= link_to "Accept", accept_booking_path(@booking), method: :post, class:"btn-call-action"%>
         <% end %>
       </div>
     </div>

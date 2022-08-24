@@ -4,9 +4,14 @@
   align-items: center;
 }
 
-.booking-confirmation h3{
+.booking-confirmation-title{
   text-align: center;
   margin: 50px 0;
+}
+
+.booking-confirmation-title a{
+  text-decoration: none;
+  color: $red-fairpay;
 }
 
 .booking-confirmation-details{

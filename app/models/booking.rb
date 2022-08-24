@@ -13,6 +13,14 @@ class Booking < ApplicationRecord
     status.capitalize
   end
 
+  def accept!
+    update(status: :accepted)
+  end
+
+  def decline!
+    update(status: :declined)
+  end
+
   private
 
   def start_date_after_today

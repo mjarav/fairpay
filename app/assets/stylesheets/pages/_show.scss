@@ -34,6 +34,16 @@
   margin-bottom: 12px;
 }
 
+.card-title a{
+  text-decoration: none;
+  color: $gray-fairpay;
+}
+
+
+.card-title a:hover{
+  color: $red-fairpay
+}
+
 .weekdays-container {
   display: flex;
   margin: 24px;

@@ -22,16 +22,17 @@
                 <%= image_tag booking.service.category.image, width: 200 %>
                   <div class="dashboard-card-info">
                     <h5><%= booking.service.name%></h5>
-                    <p><%= booking.start_date%></p>
+                    <p><%= booking.start_date.strftime("%A, %b %d")%></p>
                     <p><%= booking.service.location%></p>
                   </div>
+
                   <% case booking.status
                       when "pending" %>
-                    <button class="btn-dashboard"><%= booking.format_status_for(:customer) %></button>
+                    <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i></span><%= booking.format_status_for(:customer) %>
                     <% when "accepted" %>
-                    <button class="btn-dashboard btn-accepted"><%= booking.format_status_for(:customer) %></button>
+                    <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i></span><%= booking.format_status_for(:customer) %>
                     <% when "declined" %>
-                    <button class="btn-dashboard btn-declined"><%= booking.format_status_for(:customer) %></button>
+                    <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i></span><%= booking.format_status_for(:customer) %>
                     <% end %>
               </li>
             <% end %>
@@ -49,7 +50,7 @@
                   <%= image_tag booking.service.category.image, width: 200 %>
                   <div class="dashboard-card-info">
                     <h5><%= booking.service.name%></h5>
-                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date%></p>
+                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
                     <p><i class="fas fa-map-marker-alt"></i>
                     <%= booking.service.location%></p>
                     <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>

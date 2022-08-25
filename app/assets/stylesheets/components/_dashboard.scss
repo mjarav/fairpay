@@ -66,7 +66,7 @@ height: 180px;
   justify-content: center;
   align-items: center;
   color: $gray-fairpay;
-  margin: 0 120px 0 16px;
+  margin: 0 100px 0 16px;
 }
 
 .dashboard-card-info a{
@@ -78,4 +78,16 @@ height: 180px;
   font-size: medium;
   padding: 0;
   margin: 0;
+}
+
+.dashboard-card-status i {
+  margin: 0 10px;
+}
+
+.dashboard-card-status .status-accepted i{
+  color: #59CE8F;
+}
+
+.dashboard-card-status .status-declined i{
+  color: $red-fairpay;
 }

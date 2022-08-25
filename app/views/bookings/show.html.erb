@@ -17,7 +17,7 @@
         <%= @service.location %></p>
         <p class="booking-confirmation-details">
         <i class="far fa-calendar-alt"></i>
-        <%= @booking.start_date %></p>
+        <%= @booking.start_date.strftime("%A, %b %d") %></p>
       </div>
       <div class="booking-confirmation-description">
         <p><%= @booking.description %></p>

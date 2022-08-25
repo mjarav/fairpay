@@ -8,12 +8,21 @@
   }
 
   .profile-edit{
+    display: inline;
     position: absolute;
-    right: 25px;
-    top: 25px;
+    right: 30px;
+    top: 20px;
+    list-style: none;
   }
+
   .profile-edit i{
     color: $gray-fairpay;
+    padding: 6px 0;
+    font-size: large;
+  }
+
+  .profile-edit i:hover{
+    color: $red-fairpay;
   }
 
   .profile-hero-info{
@@ -55,6 +64,7 @@
 
   .profile-media a {
     opacity: 0.5;
+    color: $gray-fairpay;
   }
 
   .profile-media a:hover {

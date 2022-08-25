@@ -11,11 +11,22 @@
   position: relative;
 }
 
-.service-head i{
+.service-head-icons{
+  display: flex;
+  flex-direction: row;
   position: absolute;
   right: 25px;
-  top: 25px;
+  top: 20px;
+  list-style: none;
+}
+
+.service-head-icons i{
   color: $gray-fairpay;
+  font-size: medium;
+  padding: 0 4px;
+}
+.service-head-icons i:hover{
+  color: $red-fairpay;
 }
 
 .service-card {

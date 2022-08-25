@@ -1,11 +1,16 @@
 <div class="container">
   <div class="service-show">
     <div class="service-head">
-      <% if @service.user == current_user %>
+      <ul class="service-head-icons">
+      <li><% if @service.user == current_user %>
         <%= link_to edit_service_path do %>
-          <i class="fas fa-edit fa-lg"></i>
-        <% end %>
+          <i class="fas fa-edit"></i>
+        <% end %></li>
+        <li><%=link_to service_path(@service), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-black" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %></li>
       <% end %>
+      </ul>
         <div class="show-img">
           <% if @service.user.photo.attached? %>
             <%= cl_image_tag @service.user.photo.key, height: 200, width: 200 %>
@@ -17,10 +22,11 @@
     </div>
     <div>
       <div class="show-headers">
-        <h1 class="card-title"><%=@service.name  %></h1>
-        <p class="card-title">
+        <h1 class="card-title"><%= @service.name  %></h1>
+        <p class="card-title"><%=link_to user_path(@service.user) do %>
           <i class="fas fa-user fa-lg"></i>
           <%=@service.user.first_name %> <%=@service.user.last_name %>
+          <% end %>
         </p>
 
         <p class="card-title">

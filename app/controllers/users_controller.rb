@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy if @user == current_user
+
+    redirect_to root_path
+  end
+
   private
 
   def set_user

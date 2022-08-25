@@ -7,6 +7,13 @@ class BookingsController < ApplicationController
     @service_bookings = current_user.service_bookings.includes(service: :category)
   end
 
+  def update
+    @my_booking = Booking.find(params[:id])
+    @my_booking.confirmation = true
+    @my_booking.save!
+    redirect_to bookings_path
+  end
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -33,9 +40,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.service = Service.find(params[:service_id])
-    @booking.save!
-
-    redirect_to bookings_path, notice: "Your booking has been created"
+    if @booking.save
+      redirect_to bookings_path, notice: "Your booking has been created"
+    else
+      render 'new'
+    end
   end
 
   private

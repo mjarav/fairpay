@@ -85,8 +85,8 @@
 
 .btn-dashboard {
   color: white;
-  border: 1px solid $red-fairpay;
-  background-color: $red-fairpay;
+  background-color: $gray-fairpay;
+  border: 1px solid $gray-fairpay;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -103,4 +103,14 @@
 .btn-dashboard a {
   text-decoration: none;
   color: white;
+}
+
+.btn-accepted{
+  background-color: #59CE8F;
+  border: 1px solid #59CE8F;
+}
+
+.btn-declined{
+  background-color: $red-fairpay;
+  border: 1px solid $red-fairpay
 }

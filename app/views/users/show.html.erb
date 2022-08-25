@@ -1,11 +1,14 @@
 <div class= "profile-hero">
-  <div class="profile-edit">
-  <% if @user == current_user %>
-      <%= link_to edit_user_path do %>
-        <i class="fas fa-user-edit fa-lg"></i>
+  <ul class="profile-edit">
+      <% if @user == current_user %>
+        <li><%= link_to edit_user_path do %>
+          <i class="fas fa-user-edit"></i>
+        <% end %></li>
+        <li><%=link_to user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-black" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %></li>
       <% end %>
-    <% end %>
-  </div>
+    </ul>
   <div class= "profile-hero-info">
     <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, height: 200, width: 200 %>

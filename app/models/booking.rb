@@ -2,6 +2,9 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :service
 
+  validates :start_date, presence: true, on: :create
+  validate :start_date_after_today
+
   enum status: [:pending, :declined, :accepted, :completed]
 
   def format_status_for(user_type)
@@ -20,12 +23,12 @@ class Booking < ApplicationRecord
 
   private
 
-def start_date_in_future
-  return if start_date.blank?
-  return if start_date >= Date.current
-  errors.add(:start_date, :invalid)
-end
+  def start_date_after_today
+    return if start_date.blank?
 
-
+    if start_date < Date.today
+      errors.add(:start_date, "must be after today")
+    end
+ end
 
 end

@@ -32,7 +32,7 @@ frank = User.create!(email: "frank@gmail.com", password: "lewagon", first_name: 
 monica = User.create!(email: "monica@gmail.com", password: "lewagon", first_name: "Monica",
   last_name: "Jara", nickname: "Mó", bio: "Hola! I am an economist currently
   working and studying web development at LeWagon in Berlin. I am a native German and Spanish
-  speaker. Check out my offers! ", language: "German and English", credit: 4)
+  speaker. Check out my offers! ", language: "German and English", credit: 1)
 
 carlos = User.create!(email: "carlos@gmail.com", password: "lewagon", first_name: "Carlos",
  last_name: "Montero", nickname: "Carlitos", bio: "I am Carlos from Colombia. I have been living
@@ -60,17 +60,6 @@ john = User.create!(email: "john@gmail.com", password: "lewagon", first_name: "J
   language: "English and Spanish", credit: 3)
 
 puts "Creating services..."
-packing = Service.create!(name: "Help packing", description: "If you have too much stuff
-  laying around that needs to be stored or if you are about to move and need some help, I
-  am the one for you. I am so passionate about it that I developed an app so you can have
-  an overview of all your belongings without efford", location: "Berlin",
-  monday: false, tuesday: true, wednesday: true, thursday: true, friday: false,
-  saturday: true, sunday: true, user_id: frank.id, category_id: transport.id)
-
-moving = Service.create!(name: "Help moving", description: "I have a van and can help you
-  move within Berlin and to it´s surroundings. I can also help carrying your boxes
-  and furniture", location: "Berlin", monday: false, tuesday: false, wednesday: false,
-  thursday: false, friday: false, saturday: true, sunday: true, user_id: frank.id, category_id: transport.id)
 
 translation = Service.create!(name: "Translation Spanish - German", description: "I am
   not a professional translator, but I can help with any kind of basic translations, like
@@ -79,8 +68,8 @@ translation = Service.create!(name: "Translation Spanish - German", description:
   sunday: true, user_id: monica.id, category_id: consulting.id)
 
 organizing = Service.create!(name: "Organize your home", description: "Do you feel
-  you have too much stuff and don´t know how to store it in your house? I can help you
-  with that. We can sort out and put away all the things you don´t need.", location: "Berlin",
+  you have too much stuff and don't know how to store it in your house? I can help you
+  # with that. We can sort out and put away all the things you don't need.", location: "Berlin",
   monday: true, tuesday: false, wednesday: true, thursday: false, friday: true, saturday: false,
   sunday: true, user_id: monica.id, category_id: cleaning.id)
 
@@ -103,10 +92,22 @@ guitar_lessons = Service.create!(name: "Guitar lessons", description: "I offer g
   saturday: true, sunday: false, user_id: carlos.id, category_id: education.id)
 
 shopping = Service.create!(name: "Grocery shopping", description: "If you live in Berlin and
-  cannot leave the house or if you have an elderly relative who can´t carry heavy bags, I can
+  cannot leave the house or if you have an elderly relative who can't carry heavy bags, I can
   help you with that. I can go to the nearest supermarket and take care of your shopping list",
   location: "Berlin", monday: false, tuesday: false, wednesday: false, thursday: false, friday: true,
   saturday: true, sunday: false, user_id: carlos.id, category_id: miscellaneous.id)
+
+packing = Service.create!(name: "Help packing", description: "If you have too much stuff
+  laying around that needs to be stored or if you are about to move and need some help, I
+  am the one for you. I am so passionate about it that I developed an app so you can have
+  an overview of all your belongings without efford", location: "Berlin",
+  monday: false, tuesday: true, wednesday: true, thursday: true, friday: false,
+  saturday: true, sunday: true, user_id: frank.id, category_id: transport.id)
+
+moving = Service.create!(name: "Help moving", description: "I have a van and can help you
+  move within Berlin and to it's surroundings. I can also help carrying your boxes
+  and furniture", location: "Berlin", monday: false, tuesday: false, wednesday: false,
+  thursday: false, friday: false, saturday: true, sunday: true, user_id: frank.id, category_id: transport.id)
 
 electrical_work = Service.create!(name: "Electrical work", description: "I can help with small installations
   in the house. I work connecting and disconnecting electricity supply wiring to electrical equipment",
@@ -134,7 +135,7 @@ spanish_lessons_2 = Service.create!(name: "Babysitting", description: "Since I a
   monday: true, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: true, sunday: true,
   user_id: carla.id, category_id: education.id)
 
-cleaning = Service.create!(name: "Cleaning", description: "I can clean small apartments, but I don´t do
+cleaning = Service.create!(name: "Cleaning", description: "I can clean small apartments, but I don't do
   bathrooms. I can help you with the kitchen and even do your wash.", location: "Berlin",
   monday: true, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: true, sunday: true,
   user_id: carla.id, category_id: cleaning.id)

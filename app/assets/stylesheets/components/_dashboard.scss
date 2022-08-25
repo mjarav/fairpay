@@ -50,15 +50,16 @@ height: 180px;
   display: flex;
   direction: row;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 10px;
-  height: 140px;
+  height: 135px;
 }
 
 .dashboard-card img {
   height: 100%;
   width: 120px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .dashboard-card-info{

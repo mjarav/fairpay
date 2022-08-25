@@ -20,7 +20,7 @@
         <%= @booking.start_date %></p>
       </div>
       <div class="booking-confirmation-description">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dicta animi molestias ratione.</p>
+        <p><%= @booking.description %></p>
       </div>
       <div class="booking-confirmation-buttons">
         <% if @booking.status == "pending" %>

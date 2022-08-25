@@ -20,33 +20,49 @@
             <% @bookings.each do |booking| %>
               <li class= "dashboard-card">
                 <%= image_tag booking.service.category.image, width: 200 %>
-                <div class="dashboard-card-info">
-                  <h5><%= booking.service.name%></h5>
-                  <p><%= booking.start_date%></p>
-                  <p><%= booking.service.location%></p>
-                </div>
-               <button class="btn-dashboard"><%= booking.format_status_for(:customer) %></button>
-                <% end %>
+                  <div class="dashboard-card-info">
+                    <h5><%= booking.service.name%></h5>
+                    <p><%= booking.start_date.strftime("%A, %b %d")%></p>
+                    <p><%= booking.service.location%></p>
+                  </div>
+
+                  <% case booking.status
+                      when "pending" %>
+                    <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i></span><%= booking.format_status_for(:customer) %>
+                    <% when "accepted" %>
+                    <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i></span><%= booking.format_status_for(:customer) %>
+                    <% when "declined" %>
+                    <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i></span><%= booking.format_status_for(:customer) %>
+                    <% end %>
               </li>
+            <% end %>
           </ul>
         <% end %>
       </div>
       <div class="col-6">
       <h3 class="dashboard-title">Received requests</h3>
         <% if @service_bookings.empty? %>
-          <p class="dashboard-title">Book your first service!</p>
+          <p class="dashboard-title">No requests received yet!</p>
         <% else %>
           <ul class= "list-group my-3">
             <% @service_bookings.each do |booking| %>
-              <li class= "dashboard-card">
-                <%= image_tag booking.service.category.image, width: 200 %>
-                <div class="dashboard-card-info">
-                  <h5><%= booking.service.name%></h5>
-                  <p><%= booking.start_date%></p>
-                  <p><%= booking.service.location%></p>
-                  <a>Requested by <%= link_to booking.user.first_name, booking.user %></a>
-                </div>
-                <button class="btn-dashboard"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
+                <li class= "dashboard-card">
+                  <%= image_tag booking.service.category.image, width: 200 %>
+                  <div class="dashboard-card-info">
+                    <h5><%= booking.service.name%></h5>
+                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                    <p><i class="fas fa-map-marker-alt"></i>
+                    <%= booking.service.location%></p>
+                    <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                  </div>
+                  <% case booking.status
+                    when "pending" %>
+                  <button class="btn-dashboard"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
+                  <% when "accepted" %>
+                  <button class="btn-dashboard btn-accepted"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
+                  <% when "declined" %>
+                  <button class="btn-dashboard btn-declined"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
+                  <% end %>
               </li>
             <% end %>
           </ul>

@@ -5,10 +5,10 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true, on: :create
   validate :start_date_after_today
 
-  enum status: [:pending, :declined, :accepted, :completed]
+  enum status: [:approve, :declined, :accepted, :completed]
 
   def format_status_for(user_type)
-    return "Waiting" if pending? && user_type == :customer
+    return "Waiting" if approve? && user_type == :customer
 
     status.capitalize
   end
@@ -29,6 +29,5 @@ class Booking < ApplicationRecord
     if start_date < Date.today
       errors.add(:start_date, "must be after today")
     end
- end
-
+  end
 end

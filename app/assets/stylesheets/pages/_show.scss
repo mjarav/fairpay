@@ -3,11 +3,12 @@
   position: relative;
   overflow: hidden;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
-  width: 40%;
+  width: 45%;
   margin: 40px auto;
   float: none;
   margin-bottom: 10px;
   background-color: white;
+  // padding: 0px 32px 16px;
 }
 
 .show-img {
@@ -24,7 +25,8 @@
 }
 
 .show-headers {
-  margin: 40px 8px 24px 24px;
+  // margin: 40px 8px 24px 24px;
+  margin: 40px 24px 24px 40px;
   & h1 {
     margin-bottom: 16px;
   }
@@ -54,7 +56,7 @@
 }
 
 .show-description {
-  margin: 24px;
+  margin: 24px 24px 24px 40px;
 }
 
 .show-buttons {

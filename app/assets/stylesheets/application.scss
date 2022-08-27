@@ -14,3 +14,9 @@
 
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

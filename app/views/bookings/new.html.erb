@@ -1,25 +1,23 @@
 <div class="container-fluid py-5 mx-auto">
-  <div d-flex class="row justify-content-center">
-    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-      <div class="form_card">
-        <h1> Your Request </h1>
-        <div class="row justify-content-between text-left">
-          <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Provider</label><p class="detail-container"><%= @service.user.nickname %></p></div>
-          <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Location</label><p class="detail-container"><%= @service.location %></p></div>
-        </div>
-        <div class="row justify-content-between text-left">
-          <div class="form-group col-sm-6 p-3 flex-column d-flex"> <label class="form-control-label">Service</label><p class="detail-container"><%= @service.name %></p></div>
-          <div class="form-group col-sm-6 p-3 flex-column d-flex">
-              <%= simple_form_for [@service, @booking] do |f| %>
-              <%= f.input :start_date, as: :string, label: "Select a date", required: true, input_html: {class: "datepicker detail-container"}  %>
-          <div class="form-group col-12 p-3 flex-column d-flex">
-            <label class="form-control-label">Message</label>
-              <%= f.text_area :description, class:"text-area" %>
-            <div class="text-center form-group p-3">
-              <%= f.submit "Send your request", class: "btn-call-action"%>
-              <% end %>
-        </div>
+  <h1 class= "text-center"> Your Request </h1>
+  <div class="form_card">
+    <%= simple_form_for [@service, @booking] do |f| %>
+    <div class="row justify-content-between text-left">
+      <div class="form-group col-sm-6 p-3 flex-column d-flex">
+        <label class="form-control-label">Provider</label><p class="detail-container"><%= @service.user.first_name %></p>
+        <label class="form-control-label">Service</label><p class="detail-container"><%= @service.name %></p>
       </div>
+      <div class="form-group col-sm-6 p-3 flex-column d-flex">
+        <label class="form-control-label">Location</label><p class="detail-container"><%= @service.location %></p>
+        <%= f.input :start_date, as: :string, label: "Select a date", required: true, input_html: {class: "datepicker detail-container"} %>
+      </div>
+      <div class="form-group col-12 p-3 flex-column d-flex">
+        <%= f.input :description, as: :text, required: true, class:"text-area" %>
+      <div class="text-center form-group p-3">
+        <%= f.submit "Send your request", class: "btn-call-action"%>
+          <% end %>
+      </div>
+    </div>
     </div>
   </div>
 </div>

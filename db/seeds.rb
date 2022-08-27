@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Cleaning the database..."
+
+Chatroom.destroy_all
 Service.destroy_all
 Category.destroy_all
-User.destroy_all
 Booking.destroy_all
+User.destroy_all
 
 puts "Creating categories..."
 education = Category.create!(name: "Education", image: "grammar.png")
@@ -25,9 +27,9 @@ puts "Creating users..."
 
 frank = User.create!(email: "frank@gmail.com", password: "lewagon", first_name: "Frank",
   last_name: "Gerngroß", nickname: "Frank", bio: "I'm a graphic designer and web developer
-  living in Berlin. I´m currently launching my new app called 'BoxTag' (check it out!).
+  living in Berlin. I'm currently launching my new app called 'BoxTag' (check it out!).
   Since I am an excellent driver and quite strong, I can help you out with packing and moving
-  within the Berlin and it´s surroundings.", language: "German and English", credit: 7)
+  within the Berlin and it's surroundings.", language: "German and English", credit: 7)
 
 monica = User.create!(email: "monica@gmail.com", password: "lewagon", first_name: "Monica",
   last_name: "Jara", nickname: "Mó", bio: "Hola! I am an economist currently
@@ -152,5 +154,9 @@ booking_1 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(
 booking_2 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(2022, 4, 3), user_id: carlos.id, service_id: electrical_advice.id)
 booking_1 = Booking.create(start_date: Date.new(2022, 2, 9), end_date: Date.new(2022, 2, 9), user_id: andrea.id, service_id: spanish_lessons.id)
 booking_2 = Booking.create(start_date: Date.new(2022, 8, 5), end_date: Date.new(2022, 8, 5), user_id: boris.id, service_id: electrical_work.id)
+
+puts "Creating categories..."
+
+chatroom_1 = Chatroom.create(customer: andrea, provider: carlos, name: "testing")
 
 puts "Done"

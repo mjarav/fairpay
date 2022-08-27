@@ -1,0 +1,23 @@
+<div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <h5 class="chatroom-title">Chat with <%=link_to user_path(@chatroom.provider) do %>
+  <%= @chatroom.provider.first_name%> <%= @chatroom.provider.last_name%>  <% end %></h5>
+
+
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@chatroom, @message],
+    remote: true,
+    html: {class: "d-flex"} do |f|
+  %>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Send a message to #{@chatroom.provider.first_name}",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <button class="btn-chat"><%= f.submit "Send", class:"btn-chat-send" %><i class="far fa-paper-plane"></i></button>
+  <% end %>
+</div>

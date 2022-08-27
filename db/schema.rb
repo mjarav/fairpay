@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_143021) do
+ActiveRecord::Schema.define(version: 2022_08_27_144610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,14 +65,14 @@ ActiveRecord::Schema.define(version: 2022_08_25_143021) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
-    t.bigint "service_id", null: false
     t.bigint "customer_id"
     t.bigint "provider_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "message_id"
     t.index ["customer_id"], name: "index_chatrooms_on_customer_id"
+    t.index ["message_id"], name: "index_chatrooms_on_message_id"
     t.index ["provider_id"], name: "index_chatrooms_on_provider_id"
-    t.index ["service_id"], name: "index_chatrooms_on_service_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_143021) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "services"
   add_foreign_key "bookings", "users"
-  add_foreign_key "chatrooms", "services"
+  add_foreign_key "chatrooms", "messages"
   add_foreign_key "chatrooms", "users", column: "customer_id"
   add_foreign_key "chatrooms", "users", column: "provider_id"
   add_foreign_key "messages", "chatrooms"

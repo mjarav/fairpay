@@ -1,0 +1,28 @@
+<div class="container-fluid py-5 mx-auto">
+  <h1 class= "text-center"> Give <%= @service.user.first_name%>  your feedback!</h1>
+  <div class="form_card">
+    <%= simple_form_for [@service, @review] do |f| %>
+      <div class="row justify-content-between text-left">
+
+        <div class="form-group col-sm-6 p-3 flex-column d-flex">
+          <label class="form-control-label">Provider</label><p class="detail-container"><%= @service.user.first_name %></p>
+          <label class="form-control-label">Service</label><p class="detail-container"><%= @service.name %></p>
+        </div>
+
+        <div class="form-group col-sm-6 p-3 flex-column d-flex">
+          <label class="form-control-label">Location</label><p class="detail-container"><%= @service.location %></p>
+        </div>
+
+        <hr>
+
+        <%= f.input :rating, as: :numeric, required: true %>
+        <div class="form-group col-12 p-3 flex-column d-flex">
+          <%= f.input :content, as: :text, required: true, class:"text-area" %>
+          <div class="text-center form-group p-3">
+            <%= f.submit "Submit your review", class: "btn-call-action"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

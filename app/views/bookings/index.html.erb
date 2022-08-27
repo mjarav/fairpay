@@ -21,9 +21,18 @@
               <li class= "dashboard-card">
                 <%= image_tag booking.service.category.image, width: 200 %>
                   <div class="dashboard-card-info">
-                    <h5><%= booking.service.name%></h5>
-                    <p><%= booking.start_date.strftime("%A, %b %d")%></p>
-                    <p><%= booking.service.location%></p>
+
+                  <%# this is the added part for testing the review %>
+                    <% if booking.status == "accepted" %>
+                      <h5><%= link_to booking.service.name, new_service_review_path(booking.service) %></h5>
+                      <p><%= booking.start_date.strftime("%A, %b %d")%></p>
+                      <p><%= booking.service.location%></p>
+                    <% else %>
+                    <%# until here. %>
+                      <p><%= booking.service.name%></p>
+                      <p><%= booking.start_date.strftime("%A, %b %d")%></p>
+                      <p><%= booking.service.location%></p>
+                    <% end %>
                   </div>
 
                   <% case booking.status
@@ -33,11 +42,16 @@
                     <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i><%= booking.format_status_for(:customer) %></span>
                     <% when "declined" %>
                     <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i><%= booking.format_status_for(:customer) %></span>
+                    <% when "waiting" %>
+                    <span class="dashboard-card-status status-declined">
+                      <i class="fas fa-times-circle fa-lg"></i><%= booking.format_status_for(:customer) %></span>
                     <% end %>
+
               </li>
             <% end %>
           </ul>
         <% end %>
+
       </div>
       <div class="col-6">
       <h3 class="dashboard-title">Received requests</h3>

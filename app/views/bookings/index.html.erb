@@ -46,6 +46,7 @@
         <% else %>
           <ul class= "list-group my-3">
             <% @service_bookings.each do |booking| %>
+                <% unless booking.status == "declined" %>
                 <li class= "dashboard-card">
                   <%= image_tag booking.service.category.image, width: 200 %>
                   <div class="dashboard-card-info">
@@ -60,10 +61,9 @@
                   <button class="btn-dashboard btn-pending"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
                   <% when "accepted" %>
                   <button class="btn-dashboard btn-accepted"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
-                  <% when "declined" %>
-                  <button class="btn-dashboard btn-declined"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
                   <% end %>
               </li>
+              <% end %>
             <% end %>
           </ul>
         <% end %>

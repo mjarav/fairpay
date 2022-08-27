@@ -85,15 +85,23 @@
 
 .btn-dashboard {
   color: white;
-  background-color: $gray-fairpay;
-  border: 1px solid $gray-fairpay;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   width: 120px;
   margin-right: 15px;
+  opacity: 0.6;
+}
+
+.btn-pending{
+  opacity: 1;
+  background-color: $red-fairpay;
+  border: 1px solid $red-fairpay;
+}
+
+.btn-pending:hover{
+  transform: scale(1.1);
 }
 
 .btn-dashboard:hover {
@@ -111,6 +119,6 @@
 }
 
 .btn-declined{
-  background-color: $red-fairpay;
-  border: 1px solid $red-fairpay
+  background-color: $gray-fairpay;
+  border: 1px solid $gray-fairpay
 }

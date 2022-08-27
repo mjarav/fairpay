@@ -27,12 +27,12 @@
                   </div>
 
                   <% case booking.status
-                      when "pending" %>
-                    <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i></span><%= booking.format_status_for(:customer) %>
+                      when "approve" %>
+                    <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i><%= booking.format_status_for(:customer) %></span>
                     <% when "accepted" %>
-                    <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i></span><%= booking.format_status_for(:customer) %>
+                    <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i><%= booking.format_status_for(:customer) %></span>
                     <% when "declined" %>
-                    <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i></span><%= booking.format_status_for(:customer) %>
+                    <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i><%= booking.format_status_for(:customer) %></span>
                     <% end %>
               </li>
             <% end %>
@@ -46,6 +46,7 @@
         <% else %>
           <ul class= "list-group my-3">
             <% @service_bookings.each do |booking| %>
+                <% unless booking.status == "declined" %>
                 <li class= "dashboard-card">
                   <%= image_tag booking.service.category.image, width: 200 %>
                   <div class="dashboard-card-info">
@@ -56,14 +57,13 @@
                     <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
                   </div>
                   <% case booking.status
-                    when "pending" %>
-                  <button class="btn-dashboard"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
+                    when "approve" %>
+                  <button class="btn-dashboard btn-pending"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
                   <% when "accepted" %>
                   <button class="btn-dashboard btn-accepted"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
-                  <% when "declined" %>
-                  <button class="btn-dashboard btn-declined"><%= link_to booking.format_status_for(:provider), service_booking_path(booking.service, booking) %></button>
                   <% end %>
               </li>
+              <% end %>
             <% end %>
           </ul>
         <% end %>

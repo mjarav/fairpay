@@ -1,0 +1,10 @@
+<% if @service.reviews.empty? %>
+  <p>no reviews yet</p>
+<% else %>
+  <% rating.times do %>
+    <span><i class="fas fa-star"></i></span>
+  <% end %>
+  <% (5-rating).times do %>
+    <span><i class="far fa-star"></i></span>
+  <% end %>
+<% end %>

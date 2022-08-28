@@ -2,11 +2,9 @@ class ReviewsController < ApplicationController
   def new
     @service = Service.find(params[:service_id])
     @review = Review.new
-
   end
 
   def create
-
     @service = Service.find(params[:service_id])
     @review = Review.new(review_params)
     @review.service = @service

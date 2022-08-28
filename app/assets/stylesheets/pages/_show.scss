@@ -3,8 +3,8 @@
   position: relative;
   overflow: hidden;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
-  width: 45%;
-  margin: 40px auto;
+  width: 100%;
+
   float: none;
   margin-bottom: 10px;
   background-color: white;
@@ -20,7 +20,7 @@
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
-  margin: 40px 20px;
+  margin: 40px 20px 20px 20px;
 }
 
 .show-headers {
@@ -39,7 +39,6 @@
   color: $gray-fairpay;
 }
 
-
 .card-title a:hover{
   color: $red-fairpay
 }
@@ -47,6 +46,7 @@
 .weekdays-container {
   display: flex;
   margin: 24px;
+  width: 70%;
   & .week-item {
     flex-grow: 1;
     text-align: center;
@@ -59,4 +59,8 @@
 
 .show-buttons {
   margin: 24px;
+}
+
+.reviews-container {
+  margin: 24px 24px 24px 40px;
 }

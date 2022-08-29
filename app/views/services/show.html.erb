@@ -32,7 +32,15 @@
             <% end %>
             </ul>
             <h1 class="card-title"><strong><%= @service.name %></strong></h1>
-            <p><em><%= render "rating", rating: @average_rating %>  ( <%= @number_of_reviews %> reviews )</em></p>
+            <span>
+              <p><em><%= render "rating", rating: @average_rating %>
+                <% if @number_of_reviews == 1 %>
+                  ( <%= @number_of_reviews %> review )
+                <% else %>
+                  ( <%= @number_of_reviews %> reviews )
+                <% end %>
+              </em></p>
+            </span>
           </div>
 
           <div class="show-description">
@@ -85,7 +93,7 @@
               <p>Sun</p>
             </div>
 
-            <p class="card-text"><%=@service.description %></p>
+            <p><%=@service.description %></p>
             <% if @service.user != current_user %>
               <div class="show-buttons">
                 <%= link_to "Send your request!",  new_service_booking_path(@service), class: "btn-call-action" %>
@@ -100,7 +108,7 @@
 
       <div class="average-rating">
         <% if @service.reviews.empty? %>
-          <p><em>no reviews yet</em></p>
+          <p style="color: #83cac1;"><em>no reviews yet</em></p>
         <% else %>
           <p>Reviews:</p>
           <div class="review-container">
@@ -116,7 +124,7 @@
                     <% end %>
 
                   <h6 class="card-subtitle mb-2 text-muted"><%= render "rating", rating: review.rating %></h6>
-                  <p class="card-text"><%= review.content %></p>
+                  <p class="card-review-text"><%= review.content %></p>
               </div>
             <% end %>
           </div>

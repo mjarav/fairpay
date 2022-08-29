@@ -2,27 +2,26 @@
   <div class="service-show">
     <div class="row justify-content-between text-left">
 
+      <div class="col-4 service-head">
 
-
-      <div class="col-4 p-2">
-        <div class="service-head">
-            <div class="show-img">
-              <% if @service.user.photo.attached? %>
-                <%= cl_image_tag @service.user.photo.key, height: 200, width: 200 %>
-              <% else %>
-                <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg",
-                  style: "object-fit: cover", alt: "Profile Picture") %>
-              <% end %>
+          <div class="show-img">
+            <% if @service.user.photo.attached? %>
+              <%= cl_image_tag @service.user.photo.key, height: 200, width: 200 %>
+            <% else %>
+              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg",
+                style: "object-fit: cover", alt: "Profile Picture") %>
+            <% end %>
           </div>
-            <h1 class="card-title"><%=link_to user_path(@service.user) do %>
+          <div>
+            <h2 class="card-title"><%=link_to user_path(@service.user) do %>
               <%=@service.user.first_name %> <%=@service.user.last_name %>
               <% end %>
-            </h1>
-        </div>
+            </h2>
+          </div>
+
       </div>
 
-
-      <div class="col-8 p-2">
+      <div class="col-8">
           <div class="show-headers">
             <ul class="service-head-icons">
             <li><% if @service.user == current_user %>
@@ -34,88 +33,90 @@
               <% end %></li>
             <% end %>
             </ul>
-            <h1 class="card-title"><%= @service.name %></h1>
-            <p><%= render "rating", rating: @average_rating %></p>
+            <h1 class="card-title"><strong><%= @service.name %></strong></h1>
+            <p><em><%= render "rating", rating: @average_rating %>  ( <%= @number_of_reviews %> reviews )</em></p>
+          </div>
 
-            <p class="card-title">
+
+          <div class="show-description">
+            <p>
               <i class="fas fa-map-marker-alt fa-lg"></i>
               <%=@service.location %>
             </p>
-          </div>
+            <div class="weekdays-container">
+              <% if @service.monday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+              <p>Mon</p>
+              <% if @service.tuesday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+                <p>Tue</p>
+              <% if @service.wednesday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+              <p>Wed</p>
+              <% if @service.thursday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+              <p>Thu</p>
+              <% if @service.friday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+              <p>Fri</p>
+              <% if @service.saturday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+              <p>Sat</p>
+              <% if @service.sunday %>
+                <i class="fas fa-clock fa-lg week-item"></i>
+              <% else %>
+                <i class="far fa-circle fa-lg week-item"></i>
+              <% end %>
+              <p>Sun</p>
+            </div>
 
-          <div class="weekdays-container">
-            <% if @service.monday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-            <p>Mon</p>
-            <% if @service.tuesday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-              <p>Tue</p>
-            <% if @service.wednesday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-            <p>Wed</p>
-            <% if @service.thursday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-            <p>Thu</p>
-            <% if @service.friday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-            <p>Fri</p>
-            <% if @service.saturday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-            <p>Sat</p>
-            <% if @service.sunday %>
-              <i class="fas fa-clock fa-lg week-item"></i>
-            <% else %>
-              <i class="far fa-circle fa-lg week-item"></i>
-            <% end %>
-            <p>Sun</p>
-          </div>
-          <div class="show-description">
             <p class="card-text"><%=@service.description %></p>
+            <% if @service.user != current_user %>
+              <div class="show-buttons">
+                <%= link_to "Send your request!",  new_service_booking_path(@service), class: "btn-call-action" %>
+                <%= link_to "Let's chat", root_path, class: "btn-call-action-reverse" %>
+              </div>
+            <% end %>
+
           </div>
         </div>
       </div>
 
 
-      <% if @service.user != current_user %>
-        <div class="show-buttons">
-          <%= link_to "Send your request!",  new_service_booking_path(@service), class: "btn-call-action" %>
-          <%= link_to "Let's chat", root_path, class: "btn-call-action-reverse" %>
-        </div>
-      <% end %>
-      <hr>
-      <div class="review-container">
-        <% @service.reviews.each do |review| %>
-          <div class="review-card">
-              <h6 class="card-title"><%= review.user.first_name %></h6>
-              <h6 class="card-subtitle mb-2 text-muted"><%= render "rating", rating: review.rating %></h6>
-              <p class="card-text"><%= review.content %></p>
+      <div class="average-rating">
+        <% if @service.reviews.empty? %>
+          <p><em>no reviews yet</em></p>
+        <% else %>
+          <p>Reviews:</p>
+          <div class="review-container">
+            <% @service.reviews.each do |review| %>
+              <div class="review-card">
+                  <h6 class="card-title"><%= review.user.first_name %></h6>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= render "rating", rating: review.rating %></h6>
+                  <p class="card-text"><%= review.content %></p>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
-
-
-
-
-
-
     </div>
   </div>
 </div>

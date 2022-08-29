@@ -24,7 +24,7 @@
 }
 
 .show-headers {
-  margin: 40px 24px 24px 40px;
+  margin: 40px 24px 40px 40px;
   & h1 {
     margin-bottom: 16px;
   }
@@ -45,22 +45,27 @@
 
 .weekdays-container {
   display: flex;
-  margin: 24px;
-  width: 70%;
+  margin-bottom: 24px;
+  width: 75%;
   & .week-item {
-    flex-grow: 1;
-    text-align: center;
+    // flex-grow: 1;
+    text-align: left;
+    padding-right: 12px;
+  }
+  & p {
+    padding-right: 12px;
   }
 }
 
 .show-description {
-  margin: 24px 24px 24px 40px;
+  margin: 24px 24px 16px 40px;
 }
 
-.show-buttons {
-  margin: 24px;
-}
+// .reviews-container {
+//   margin: 24px 24px 24px 40px;
+// }
 
-.reviews-container {
+
+.average-rating {
   margin: 24px 24px 24px 40px;
 }

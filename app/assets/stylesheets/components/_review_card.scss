@@ -10,10 +10,20 @@
   border-radius: 8px;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
   padding: 12px;
-  max-height: 15vh;
+  // max-height: 15vh;
+  position: relative;
 
   & p {
     font-size: 16px;
+  }
+
+  & .item {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: $gray-fairpay;
+    font-size: medium;
+    padding: 0 4px;
   }
 }
 

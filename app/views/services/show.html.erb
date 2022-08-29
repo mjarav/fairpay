@@ -3,22 +3,20 @@
     <div class="row justify-content-between text-left">
 
       <div class="col-4 service-head">
-
-          <div class="show-img">
-            <% if @service.user.photo.attached? %>
-              <%= cl_image_tag @service.user.photo.key, height: 200, width: 200 %>
-            <% else %>
-              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg",
-                style: "object-fit: cover", alt: "Profile Picture") %>
+        <div class="show-img">
+          <% if @service.user.photo.attached? %>
+            <%= cl_image_tag @service.user.photo.key, height: 200, width: 200 %>
+          <% else %>
+            <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg",
+              style: "object-fit: cover", alt: "Profile Picture") %>
+          <% end %>
+        </div>
+        <div>
+          <h2 class="card-title"><%=link_to user_path(@service.user) do %>
+            <%=@service.user.first_name %> <%=@service.user.last_name %>
             <% end %>
-          </div>
-          <div>
-            <h2 class="card-title"><%=link_to user_path(@service.user) do %>
-              <%=@service.user.first_name %> <%=@service.user.last_name %>
-              <% end %>
-            </h2>
-          </div>
-
+          </h2>
+        </div>
       </div>
 
       <div class="col-8">
@@ -36,7 +34,6 @@
             <h1 class="card-title"><strong><%= @service.name %></strong></h1>
             <p><em><%= render "rating", rating: @average_rating %>  ( <%= @number_of_reviews %> reviews )</em></p>
           </div>
-
 
           <div class="show-description">
             <p>
@@ -110,6 +107,14 @@
             <% @service.reviews.each do |review| %>
               <div class="review-card">
                   <h6 class="card-title"><%= review.user.first_name %></h6>
+
+                    <% if review.user == current_user %>
+                      <%=link_to service_path(@service), method: :delete,
+                       data: { confirm: "Are you sure?" }, class: "text-decoration-none text-black" do %>
+                      <i class="fas fa-trash-alt item"></i>
+                      <% end %></li>
+                    <% end %>
+
                   <h6 class="card-subtitle mb-2 text-muted"><%= render "rating", rating: review.rating %></h6>
                   <p class="card-text"><%= review.content %></p>
               </div>

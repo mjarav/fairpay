@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+   # should the destroy method be in the show controller?
+  before_action :set_review, only: [:destroy]
+
   def new
     @service = Service.find(params[:service_id])
     @review = Review.new
@@ -16,9 +19,24 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # should the destroy method be in the show controller?
+  def destroy
+    @review.destroy if @review.user == current_user
+
+    redirect_to service_path(@service)
+  end
+
   private
 
   def review_params
     params.require(:review).permit(:content, :rating)
+  end
+
+
+   # should the destroy method be in the show controller?
+
+  def set_review
+    @review = Review.find(params[:id])
+    raise
   end
 end

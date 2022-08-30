@@ -1,2 +1,183 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80); background-position: center;">
+  <div class= "hero">
+      <%= image_tag "fairpay-logo.png", class:"img" %>
+      <p><b>...because time is more than money</b></p>
+      <div class="homeglobal-searchbar d-flex justify-content-center">
+      <%= form_tag services_path, method: :get, class:'d-flex .homeglobal-searchbar' do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "home-searchbar col-md-10 col-md-offset-10",
+          placeholder: "What service are you looking for?"
+      %>
+      <div>
+        <%= button_tag(type: "submit", class: "btn btn-home") do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="carousel container">
+<h1 class= "text-center">Service Provided</h1>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="cards-wrapper">
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("business.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Consulting</p>
+            <h3>Translation Spanish-German</h3>
+            <p><i class="fas fa-user"></i> Monica</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("grammar.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Education</p>
+            <h3>Spanish Lesson</h3>
+            <p><i class="fas fa-user"></i> Carlos</p>
+            <p><i class="fas fa-map-marker-alt"></i> Remote and Berlin</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("trolley.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Transport</p>
+            <h3>Help Packing</h3>
+            <p><i class="fas fa-user"></i> Frank</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("paint-brush.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Home</p>
+            <h3>Electrical work</h3>
+            <p><i class="fas fa-user"></i> Andrea</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin and Postdam</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("business.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Consulting</p>
+            <h3>Tax Advice</h3>
+            <p><i class="fas fa-user"></i> Boris</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin and Remote</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("clock.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Miscellaneous</p>
+            <h3>Psychological Advise</h3>
+            <p><i class="fas fa-user"></i> John</p>
+            <p><i class="fas fa-map-marker-alt"></i> London and Remote</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("sweep.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Cleaning</p>
+            <h3>Cleaning</h3>
+            <p><i class="fas fa-user"></i> Carla</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("charity.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Care</p>
+            <h3>Baby Sitting</h3>
+            <p><i class="fas fa-user"></i> Carla</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="service-img">
+          <%= image_tag("grammar.png", alt: "Service Picture") %>
+          </div>
+            <div class="carousel-text">
+            <p>Education</p>
+            <h3>Guitar Lesson</h3>
+            <p><i class="fas fa-user"></i> Carlos</p>
+            <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+</div>
+
+<div class="about-us">
+  <div class="container">
+    <h1> Why Fairpay? </h1>
+    <div class="row">
+      <div class ="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <div class="about-img">
+            <%= image_tag("fairpay-logo.png", alt: "Service Picture", style:"max-height: 50%; max-width: 50%;") %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Some title</h5>
+            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+      </div>
+      <div class ="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Some title</h5>
+            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+      </div>
+      <div class ="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Some title</h5>
+            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+      </div>
+    <div>
+  </div>
+</div>

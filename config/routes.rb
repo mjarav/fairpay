@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  # should the destroy method be in the show controller?
   resources :reviews, only: [:destroy]
 
   resources :bookings, only: [:index] do

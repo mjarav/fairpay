@@ -19,11 +19,10 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # should the destroy method be in the show controller?
   def destroy
     @review.destroy if @review.user == current_user
 
-    redirect_to service_path(@service)
+    redirect_to service_path(@review.service)
   end
 
   private
@@ -32,11 +31,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:content, :rating)
   end
 
-
-   # should the destroy method be in the show controller?
-
   def set_review
     @review = Review.find(params[:id])
-    raise
   end
 end

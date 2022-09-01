@@ -3,8 +3,8 @@
   position: relative;
   overflow: hidden;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
-  width: 45%;
-  margin: 40px auto;
+  width: 100%;
+
   float: none;
   margin-bottom: 10px;
   background-color: white;
@@ -20,11 +20,11 @@
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
-  margin: 40px 20px;
+  margin: 40px 20px 20px 20px;
 }
 
 .show-headers {
-  margin: 40px 24px 24px 40px;
+  margin: 40px 24px 40px 40px;
   & h1 {
     margin-bottom: 16px;
   }
@@ -39,24 +39,33 @@
   color: $gray-fairpay;
 }
 
-
 .card-title a:hover{
   color: $red-fairpay
 }
 
 .weekdays-container {
   display: flex;
-  margin: 24px;
+  margin-bottom: 24px;
+  width: 75%;
   & .week-item {
-    flex-grow: 1;
-    text-align: center;
+    // flex-grow: 1;
+    text-align: left;
+    padding-right: 12px;
+  }
+  & p {
+    padding-right: 12px;
   }
 }
 
 .show-description {
-  margin: 24px 24px 24px 40px;
+  margin: 24px 24px 16px 40px;
 }
 
-.show-buttons {
-  margin: 24px;
+// .reviews-container {
+//   margin: 24px 24px 24px 40px;
+// }
+
+
+.average-rating {
+  margin: 24px 24px 24px 40px;
 }

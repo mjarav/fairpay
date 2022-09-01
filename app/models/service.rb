@@ -2,6 +2,7 @@ class Service < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, :description, :location, :category_id, presence: true
   validate :any_present

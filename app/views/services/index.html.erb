@@ -10,14 +10,35 @@
       <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         When?
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><%= check_box_tag 'monday'%><%= label_tag "monday", "Monday"%></li>
-        <li><%= check_box_tag 'tuesday'%><%= label_tag "tuesday", " Tuesday"%></li>
-        <li><%= check_box_tag 'wednesday'%><%= label_tag "wednesday", " Wednesday"%></li>
-        <li><%= check_box_tag 'thursday'%><%= label_tag "thursday", " Thursday"%></li>
-        <li><%= check_box_tag 'friday'%><%= label_tag " friday", " Friday"%></li>
-        <li><%= check_box_tag 'saturday'%><%= label_tag "saturday", " Saturday"%></li>
-        <li><%= check_box_tag 'sunday'%><%= label_tag "sunday", " Sunday"%></li>
+      <ul class="dropdown-menu index-dropdown-spacing" aria-labelledby="dropdownMenuButton1">
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'monday'%></span>
+          <%= label_tag "monday", "Monday"%>
+        </li>
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'tuesday'%></span>
+          <%= label_tag "tuesday", " Tuesday"%>
+        </li>
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'wednesday'%></span>
+          <%= label_tag "wednesday", " Wednesday"%>
+        </li>
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'thursday'%></span>
+          <%= label_tag "thursday", " Thursday"%>
+        </li>
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'friday'%></span>
+          <%= label_tag " friday", " Friday"%>
+        </li>
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'saturday'%></span>
+          <%= label_tag "saturday", " Saturday"%>
+        </li>
+        <li>
+          <span class="index-dropdown-spacing-item"><%= check_box_tag 'sunday'%></span>
+          <%= label_tag "sunday", " Sunday"%>
+        </li>
       </ul>
     </div>
     <div>

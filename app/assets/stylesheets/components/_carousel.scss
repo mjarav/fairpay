@@ -1,7 +1,7 @@
 .cards-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin: 25px 45px;
 }
 
 .card {
@@ -10,6 +10,8 @@
   box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
   border: none;
   border-radius: 15px;
+  position: relative;
+  overflow: hidden;
 }
 .carousel-inner {
   padding: 1em;

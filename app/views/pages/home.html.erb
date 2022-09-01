@@ -2,11 +2,11 @@
   <div class= "hero">
       <%= image_tag "fairpay-logo.png", class:"img" %>
       <p><b>...because time is more than money</b></p>
-      <div class="homeglobal-searchbar d-flex justify-content-center">
-      <%= form_tag services_path, method: :get, class:'d-flex .homeglobal-searchbar' do %>
+      <div class="homeglobal-searchbar">
+      <%= form_tag services_path, method: :get, class:'d-flex' do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "home-searchbar col-md-10 col-md-offset-10",
+          class: "home-searchbar col-md-4 col-md-offset-4",
           placeholder: "What service are you looking for?"
       %>
       <div>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="carousel container">
-<h1 class= "text-center">Service Provided</h1>
+<h1 class= "text-center">Some of the service provided . . .</h1>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -153,9 +153,7 @@
     <div class="row">
       <div class ="col-12 col-md-6 col-lg-4">
         <div class="card">
-          <div class="about-img">
             <%= image_tag("fairpay-logo.png", alt: "Service Picture", style:"max-height: 50%; max-width: 50%;") %>
-          </div>
           <div class="card-body">
             <h5 class="card-title">Some title</h5>
             <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

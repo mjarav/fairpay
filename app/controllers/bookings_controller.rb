@@ -2,9 +2,10 @@ class BookingsController < ApplicationController
   before_action :set_service, only: [:new, :create, :show]
 
   def index
-    @bookings = current_user.bookings.includes(service: :category)
+    @bookings = current_user.bookings.includes(service: :category).order(start_date: :asc)
 
-    @service_bookings = current_user.service_bookings.includes(service: :category)
+    @service_bookings = current_user.service_bookings.includes(service: :category).order(start_date: :asc)
+
   end
 
   def update
@@ -20,9 +21,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-
     @booking.accept!
-
 
     redirect_to bookings_path
   end
@@ -34,6 +33,21 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def complete
+    @booking = Booking.find(params[:id])
+    @booking.complete!
+
+    @provider = @booking.service.user
+    @customer = @booking.user
+
+    @provider.update(credit: (@provider.credit - 1))
+    @customer.update(credit: (@customer.credit + 1))
+
+
+    redirect_to bookings_path
+
+  end
+
   def new
     @booking = Booking.new
   end
@@ -43,6 +57,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.service = Service.find(params[:service_id])
     if @booking.save
+
       redirect_to bookings_path, notice: "Your booking has been created"
     else
       render 'new'

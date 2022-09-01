@@ -21,12 +21,19 @@ class Booking < ApplicationRecord
     update(status: :declined)
   end
 
+  def complete!
+    update(status: :completed)
+  end
+
+
+
   private
 
   def start_date_after_today
+
     return if start_date.blank?
 
-    if start_date < Date.today
+    if start_date < Date.today && status != "completed" && status != "declined"
       errors.add(:start_date, "must be after today")
     end
   end

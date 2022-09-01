@@ -1,0 +1,35 @@
+.review-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 24px;
+  padding: 0px 24px 24px 0px;
+}
+
+.review-card {
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
+  padding: 12px;
+  // max-height: 15vh;
+  position: relative;
+
+  & p {
+    font-size: 16px;
+  }
+
+  & .item {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: $gray-fairpay;
+    font-size: medium;
+    padding: 0 4px;
+  }
+}
+
+.card-review-text {
+  width: 550px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

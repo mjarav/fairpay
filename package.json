@@ -10,6 +10,7 @@
     "bootstrap": "^5.2.0",
     "datepickr": "^1.4.2",
     "flatpickr": "^4.6.13",
+    "star-rating.js": "^4.3.0",
     "stimulus": "^3.1.0",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",

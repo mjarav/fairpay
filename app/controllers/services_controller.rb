@@ -55,6 +55,11 @@ class ServicesController < ApplicationController
   end
 
   def show
+    reviews = @service.reviews
+    @number_of_reviews = reviews.length
+    unless reviews.empty?
+      @average_rating = reviews.map(&:rating).inject(0, &:+) / @number_of_reviews
+    end
   end
 
   def destroy

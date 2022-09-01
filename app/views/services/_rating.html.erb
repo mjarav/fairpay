@@ -1,0 +1,10 @@
+<% if @service.reviews.empty? %>
+
+<% else %>
+  <% rating.times do %>
+    <span style="color: #FFC65A;"><i class="fas fa-star"></i></span>
+  <% end %>
+  <% (5-rating).times do %>
+    <span><i class="far fa-star"></i></span>
+  <% end %>
+<% end %>

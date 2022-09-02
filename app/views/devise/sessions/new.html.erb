@@ -1,20 +1,29 @@
-<h2>Log in</h2>
-
+<div class="container py-5 mx-auto">
+<h2 class= "text-center">Log in</h2>
+<div class="form_card">
+<div class="row">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
+    <div class="form-group col-12 p-3 flex-column d-flex">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email", class: "detail-container"} %>
     <%= f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "current-password", class: "detail-container" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: "btn btn-call-action text-black" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="mt-3">
+<%= render "devise/shared/links"%>
+</div>
+</div>
+</div>
+</div>

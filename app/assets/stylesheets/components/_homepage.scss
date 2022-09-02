@@ -14,6 +14,7 @@
     padding: 0px 0px 0px 0px;
     font-family: 'Lemonada', cursive;
     font-weight:lighter;
+    text-shadow: 1px 1px 1px $gray-fairpay;
   }
 
 }
@@ -34,21 +35,26 @@
 .home-searchbar {
   width: 400px;
   border-radius: 50px 0 0 50px;
-  border-left: 2px solid $gray-fairpay;
-  border-top: 2px solid $gray-fairpay;
-  border-right: 1px solid $gray-fairpay;
-  border-bottom: 2px solid $gray-fairpay;
-  box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
+  border-left: 2px solid #CAC6CF;
+  border-top: 2px solid #CAC6CF;
+  border-right: 1px solid #CAC6CF;
+  border-bottom: 2px solid #CAC6CF;
+  box-shadow: 2px 2px 8px 1px rgba(44, 44, 44, 0.2);
   justify-content: center;
   padding: 0px 0px 0px 10px;
 }
 
+::placeholder {
+  color: $gray-fairpay;
+  opacity: 0.5;
+}
+
 .btn-home {
   color: $gray;
-  border-left: 1px solid $gray-fairpay;
-  border-top: 2px solid $gray-fairpay;
-  border-right: 2px solid $gray-fairpay;
-  border-bottom: 2px solid $gray-fairpay;
+  border-left: 1px solid #CAC6CF;
+  border-top: 2px solid #CAC6CF;
+  border-right: 2px solid #CAC6CF;
+  border-bottom: 2px solid #CAC6CF;
   background-color: white;
   padding: 8px 24px;
   border-radius: 0 50px 50px 0;
@@ -95,10 +101,12 @@
   align-items: center;
   border-radius: 50%;
 
+
   img{
     border-radius: 50%;
     margin: 30px 20px 20px;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: 2px solid rgba(117, 138, 131, .5)
   }
 
 }

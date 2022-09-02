@@ -12,11 +12,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Home", services_path, class: "nav-link" %>
+            <li class="nav-item-1 active">
+              <%= link_to "Services", services_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item-2">
               <%= link_to "Dashboard", bookings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item-3">
+              <%= link_to "Create a service", new_service_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <% if current_user.photo.attached? %>
@@ -25,7 +28,6 @@
                    <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "New service", new_service_path, class: "dropdown-item" %>
                 <%= link_to "Messages", '#', class: "dropdown-item" %>
                 <%= link_to "My profile", current_user, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>

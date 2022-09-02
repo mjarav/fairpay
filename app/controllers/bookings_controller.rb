@@ -40,8 +40,8 @@ class BookingsController < ApplicationController
     @provider = @booking.service.user
     @customer = @booking.user
 
-    @provider.update(credit: (@provider.credit - 1))
-    @customer.update(credit: (@customer.credit + 1))
+    @provider.update(credit: (@provider.credit + 1))
+    @customer.update(credit: (@customer.credit - 1))
 
 
     redirect_to bookings_path

@@ -1,77 +1,85 @@
 <div class= "dashboard-hero">
+<div class="dashboard-hero-img"></div>
   <div class= "dashboard-hero-info">
-    <h3>Hey <%= current_user.first_name %>!</h3>
-    <p>Take a look at your dashboard</p>
+    <h1> <strong>Hey <%= current_user.first_name %>!</strong> </h1>
+    <h4>Take a look at your dashboard</h4>
   </div>
   <div class= "dashboard-hero-credit">
-    <h2><%= current_user.credit %></h2>
-    <p>Credits</p>
+    <span><i class="far fa-clock fa-3x"></i><h3><%= current_user.credit %> cerdits</h3> </span>
   </div>
 </div>
+
 <div class="dashboard">
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <h3 class="dashboard-title">Give your feedback</h3>
-        <div>
-          <% @bookings.each do |booking| %>
-            <% if booking.status == "completed" %>
-              <li class= "dashboard-card">
-                <%= image_tag booking.service.category.image, width: 200 %>
-                <div class="dashboard-card-info">
-                  <h5><%= booking.service.name%></h5>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
-                  <p><i class="fas fa-map-marker-alt"></i>
-                  <%= booking.service.location%></p>
-                  <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
-                </div>
-                <button class="btn-dashboard btn-give-review">
-                  <%= link_to "Review",
-                      new_service_review_path(booking.service) %></button>
-              </li>
-            <% end %>
-          <% end %>
-        </div>
-
-        <h3 class="dashboard-title">You will get this service</h3>
-        <div>
-          <% @bookings.each do |booking| %>
-            <% if booking.status == "accepted" %>
-              <li class= "dashboard-card">
-                <%= image_tag booking.service.category.image, width: 200 %>
-                <div class="dashboard-card-info">
-                  <h5><%= booking.service.name%></h5>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
-                  <p><i class="fas fa-map-marker-alt"></i>
-                  <%= booking.service.location%></p>
-                  <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
-                </div>
-                <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
-                  <%= booking.format_status_for(:customer) %></span>
-              </li>
-            <% end %>
-          <% end %>
-        </div>
-
-
-
-
-          <h3 class="dashboard-title">Sent requests</h3>
-          <% if @bookings.blank? %>
-            <p class="dashboard-title">Book your first service!</p>
-          <% else %>
-            <ul class= "list-group my-3">
-
+  <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Sent requests</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Received requests</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="dashboard-title">Give your feedback</h3>
+            <div>
               <% @bookings.each do |booking| %>
-                <% unless booking.status == "completed" || booking.status == "accepted"  %>
+                <% if booking.status == "completed" %>
                   <li class= "dashboard-card">
                     <%= image_tag booking.service.category.image, width: 200 %>
+                    <div class="dashboard-card-info">
+                      <h5><%= booking.service.name%></h5>
+                      <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                      <p><i class="fas fa-map-marker-alt"></i>
+                      <%= booking.service.location%></p>
+                      <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                    </div>
+                    <button class="btn-dashboard btn-give-review">
+                      <%= link_to "Review",
+                          new_service_review_path(booking.service) %></button>
+                  </li>
+                <% end %>
+              <% end %>
+            </div>
+            <h3 class="dashboard-title">Upcoming services</h3>
+            <div>
+              <% @bookings.each do |booking| %>
+                <% if booking.status == "accepted" %>
+                  <li class= "dashboard-card">
+                    <%= image_tag booking.service.category.image, width: 200 %>
+                    <div class="dashboard-card-info">
+                      <h5><%= booking.service.name%></h5>
+                      <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                      <p><i class="fas fa-map-marker-alt"></i>
+                      <%= booking.service.location%></p>
+                      <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                    </div>
+                    <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
+                      <%= booking.format_status_for(:customer) %></span>
+                  </li>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h3 class="dashboard-title">Sent requests</h3>
+            <% if @bookings.blank? %>
+              <p class="dashboard-title">Book your first service!</p>
+            <% else %>
+              <ul class= "list-group my-3">
+
+                <% @bookings.each do |booking| %>
+                  <% unless booking.status == "completed" || booking.status == "accepted"  %>
+                    <li class= "dashboard-card">
+                      <%= image_tag booking.service.category.image, width: 200 %>
                       <div class="dashboard-card-info">
-
-                          <p><%= booking.service.name%></p>
-                          <p><%= booking.start_date.strftime("%A, %b %d")%></p>
-                          <p><%= booking.service.location%></p>
-
+                        <p><%= booking.service.name%></p>
+                        <p><%= booking.start_date.strftime("%A, %b %d")%></p>
+                        <p><%= booking.service.location%></p>
+                        <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
                       </div>
 
                       <% case booking.status
@@ -81,77 +89,28 @@
                         <% when "declined" %>
                         <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i>
                           <%= booking.format_status_for(:customer) %></span>
-                        <% when "waiting" %>
-                        <span class="dashboard-card-status status-declined">
-                          <i class="fas fa-times-circle fa-lg"></i>
-                            <%= booking.format_status_for(:customer) %></span>
+                        <%# <% when "waiting" %>
+                        <%# <span class="dashboard-card-status status-declined"> %>
+                          <%# <i class="fas fa-times-circle fa-lg"></i> %>
+                            <%# <%= booking.format_status_for(:customer) %>
                         <% end %>
-                  </li>
+                    </li>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </ul>
-          <% end %>
-
-        </div>
-
-
-
-      <div class="col-6">
-        <h3 class="dashboard-title">Did you provide the service?</h3>
-        <div>
-          <% @service_bookings.each do |booking| %>
-            <% if  booking.status == "accepted" && booking.start_date <= Date.today %>
-              <li class= "dashboard-card">
-                <%= image_tag booking.service.category.image, width: 200 %>
-                <div class="dashboard-card-info">
-                  <h5><%= booking.service.name%></h5>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
-                  <p><i class="fas fa-map-marker-alt"></i>
-                  <%= booking.service.location%></p>
-                  <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
-                </div>
-                <button class="btn-dashboard btn-pending"> <%= link_to "completed", complete_booking_path(booking),
-                  method: :post %> </button>
-                <button class="btn-dashboard btn-pending"> <%= link_to "decline", decline_booking_path(booking),
-                  method: :post %> </button>
-              </li>
+              </ul>
             <% end %>
-          <% end %>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div>
-          <h3 class="dashboard-title">Do you accept or decline?</h3>
-          <% @service_bookings.each do |booking| %>
-            <% if  booking.status == "approve"  %>
-              <li class= "dashboard-card">
-                <%= image_tag booking.service.category.image, width: 200 %>
-                <div class="dashboard-card-info">
-                  <h5><%= booking.service.name%></h5>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
-                  <p><i class="fas fa-map-marker-alt"></i>
-                  <%= booking.service.location%></p>
-                  <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
-                </div>
-                <button class="btn-dashboard btn-pending">
-                  <%= link_to booking.format_status_for(:provider),
-                    service_booking_path(booking.service, booking) %></button>
-              </li>
-            <% end %>
-          <% end %>
-        </div>
-
-
-
-
-
-
-        <h3 class="dashboard-title">Received requests</h3>
-        <% if @service_bookings.empty? %>
-          <p class="dashboard-title">No requests received yet!</p>
-        <% else %>
-          <ul class= "list-group my-3">
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="dashboard-title">Did you provide the service?</h3>
             <% @service_bookings.each do |booking| %>
-                <% unless (booking.status == "accepted" && booking.start_date <= Date.today) || booking.status == "approve" %>
+              <% if  booking.status == "accepted" && booking.start_date <= Date.today %>
                 <li class= "dashboard-card">
                   <%= image_tag booking.service.category.image, width: 200 %>
                   <div class="dashboard-card-info">
@@ -161,22 +120,87 @@
                     <%= booking.service.location%></p>
                     <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
                   </div>
-                  <% case booking.status
-                  when "accepted" %>
-                    <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
-                      <%= booking.format_status_for(:customer) %></span>
-                  <% when "declined" %>
-                    <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i>
-                      <%= booking.format_status_for(:customer) %></span>
-                  <% when "completed" %>
-                    <span class="dashboard-card-status status-completed"><i class="fas fa-times-circle fa-lg"></i>
-                      <%= booking.format_status_for(:customer) %></span>
-                  <% end %>
-              </li>
+                  <div>
+                    <button class="btn-dashboard btn-completed"> <%= link_to "Yes", complete_booking_path(booking),
+                      method: :post %> </button>
+                    <button class="btn-dashboard btn-not-completed"> <%= link_to "No", decline_booking_path(booking),
+                      method: :post %> </button>
+                  </div>
+                </li>
               <% end %>
             <% end %>
-          </ul>
-        <% end %>
+
+            <h3 class="dashboard-title">Accepted services</h3>
+            <% @service_bookings.each do |booking| %>
+              <% if  booking.status == "accepted"  %>
+                <li class= "dashboard-card">
+                  <%= image_tag booking.service.category.image, width: 200 %>
+                  <div class="dashboard-card-info">
+                    <h5><%= booking.service.name%></h5>
+                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                    <p><i class="fas fa-map-marker-alt"></i>
+                    <%= booking.service.location%></p>
+                    <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                  </div>
+                  <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
+                    <%= booking.format_status_for(:customer) %></span>
+                </li>
+              <% end %>
+            <% end %>
+
+          </div>
+
+          <div class="col-6">
+            <h3 class="dashboard-title">Do you accept or decline?</h3>
+            <% @service_bookings.each do |booking| %>
+              <% if  booking.status == "approve"  %>
+                <li class= "dashboard-card">
+                  <%= image_tag booking.service.category.image, width: 200 %>
+                  <div class="dashboard-card-info">
+                    <h5><%= booking.service.name%></h5>
+                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                    <p><i class="fas fa-map-marker-alt"></i>
+                    <%= booking.service.location%></p>
+                    <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                  </div>
+                  <button class="btn-dashboard btn-pending">
+                    <%= link_to "Pending",
+                      service_booking_path(booking.service, booking) %></button>
+                </li>
+              <% end %>
+            <% end %>
+
+            <h3 class="dashboard-title">Received requests</h3>
+            <% if @service_bookings.empty? %>
+              <p class="dashboard-title">No requests received yet!</p>
+            <% else %>
+              <ul class= "list-group my-3">
+                <% @service_bookings.each do |booking| %>
+                    <% unless (booking.status == "accepted" && booking.start_date <= Date.today) || booking.status == "approve" || booking.status == "accepted"  %>
+                    <li class= "dashboard-card">
+                      <%= image_tag booking.service.category.image, width: 200 %>
+                      <div class="dashboard-card-info">
+                        <h5><%= booking.service.name%></h5>
+                        <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                        <p><i class="fas fa-map-marker-alt"></i>
+                        <%= booking.service.location%></p>
+                        <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                      </div>
+                      <% case booking.status
+                        when "declined" %>
+                        <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i>
+                          <%= booking.format_status_for(:customer) %></span>
+                      <% when "completed" %>
+                        <span class="dashboard-card-status status-completed"><i class="fas fa-times-circle fa-lg"></i>
+                          <%= booking.format_status_for(:customer) %></span>
+                      <% end %>
+                  </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

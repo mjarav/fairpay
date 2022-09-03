@@ -3,6 +3,9 @@
   <div class="form_card">
     <%= simple_form_for [@service, @review] do |f| %>
       <div class="row justify-content-between text-left">
+         <%= simple_fields_for :booking do |b| %>
+            <%= b.input :id, input_html: { value: params[:booking_id] }, as: :hidden %>
+         <% end %>
 
         <div class="form-group col-sm-6 p-3 flex-column d-flex">
           <%# <label class="form-control-label">Provider</label><p class="detail-container"><%= @service.user.first_name</%>
@@ -11,7 +14,6 @@
 
         <div class="form-group col-sm-6 p-3 flex-column d-flex">
           <label class="form-control-label">Location</label><p class="detail-container"><%= @service.location %></p>
-
         </div>
 
         <hr>

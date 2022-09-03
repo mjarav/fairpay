@@ -5,7 +5,7 @@
     <h4>Take a look at your dashboard</h4>
   </div>
   <div class= "dashboard-hero-credit">
-    <span><i class="far fa-clock fa-3x"></i><h3><%= current_user.credit %> cerdits</h3> </span>
+    <span><i class="far fa-clock fa-3x"></i><h3><%= current_user.credit %> credits</h3> </span>
   </div>
 </div>
 
@@ -26,11 +26,11 @@
             <h3 class="dashboard-title"><strong>Review</strong></h3>
             <p class="dashboard-title-explanation">Please review your received services</p>
             <div class="dashboard-box">
-              <% if  @bookings.where(status: "completed").empty? %>
+              <% if  @bookings.where(status: "completed").empty? && @bookings.where(status: "reviewed").empty? %>
                   <p class="dashboard-title-no-bookings"><em>No services to review</em></p>
               <% else %>
                 <% @bookings.each do |booking| %>
-                  <% if booking.status == "completed" %>
+                  <% if booking.status == "completed" || booking.status == "reviewed"  %>
                     <li class= "dashboard-card">
                       <%= image_tag booking.service.category.image, width: 200 %>
                       <div class="dashboard-card-info">
@@ -40,42 +40,21 @@
                         <%= booking.service.location%></p>
                         <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
                       </div>
-                      <button class="btn-dashboard btn-give-review">
-                        <%= link_to "Review",
-                            new_service_review_path(booking.service) %></button>
+
+                      <% if booking.status == "reviewed" %>
+                          <span class="dashboard-card-status status-reviewed"><i class="fas fa-check-circle fa-lg"></i>
+                            <%= booking.format_status_for(:customer) %></span>
+                      <% else %>
+                        <button class="btn-dashboard btn-give-review">
+                          <%= link_to "Review",
+                              new_service_review_path(booking.service, booking_id: booking.id) %></button>
+                      <% end %>
                     </li>
                   <% end %>
                 <% end %>
               <% end %>
             </div>
 
-            <h3 class="dashboard-title"><strong>Upcoming services</strong></h3>
-            <p class="dashboard-title-explanation">Take a look at the upcoming services you are receiving</p>
-            <div class="dashboard-box">
-              <% if  @bookings.where(status: "accepted").empty? %>
-                <p class="dashboard-title-no-bookings"><em>No upcoming services</em></p>
-              <% else %>
-                <% @bookings.each do |booking| %>
-                  <% if booking.status == "accepted" %>
-                    <li class= "dashboard-card">
-                      <%= image_tag booking.service.category.image, width: 200 %>
-                      <div class="dashboard-card-info">
-                        <h5><%= booking.service.name%></h5>
-                        <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
-                        <p><i class="fas fa-map-marker-alt"></i>
-                        <%= booking.service.location%></p>
-                        <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
-                      </div>
-                      <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
-                        <%= booking.format_status_for(:customer) %></span>
-                    </li>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="col-6">
             <h3 class="dashboard-title"><strong>Sent requests</strong></h3>
             <p class="dashboard-title-explanation">Look at your sent requests</p>
             <div class="dashboard-box">
@@ -84,7 +63,7 @@
               <% else %>
                 <ul class= "list-group my-3">
                   <% @bookings.each do |booking| %>
-                    <% unless booking.status == "completed" || booking.status == "accepted"  %>
+                    <% unless booking.status == "completed" || booking.status == "accepted" || booking.status == "reviewed" %>
                       <li class= "dashboard-card">
                         <%= image_tag booking.service.category.image, width: 200 %>
                         <div class="dashboard-card-info">
@@ -112,6 +91,35 @@
                 </ul>
               <% end %>
             </div>
+          </div>
+
+          <div class="col-6">
+            <h3 class="dashboard-title"><strong>Upcoming services</strong></h3>
+            <p class="dashboard-title-explanation">Take a look at the upcoming services you are receiving</p>
+            <div class="dashboard-box">
+              <% if  @bookings.where(status: "accepted").empty? %>
+                <p class="dashboard-title-no-bookings"><em>No upcoming services</em></p>
+              <% else %>
+                <% @bookings.each do |booking| %>
+                  <% if booking.status == "accepted" %>
+                    <li class= "dashboard-card">
+                      <%= image_tag booking.service.category.image, width: 200 %>
+                      <div class="dashboard-card-info">
+                        <h5><%= booking.service.name%></h5>
+                        <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
+                        <p><i class="fas fa-map-marker-alt"></i>
+                        <%= booking.service.location%></p>
+                        <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                      </div>
+                      <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
+                        <%= booking.format_status_for(:customer) %></span>
+                    </li>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+
+
           </div>
         </div>
       </div>

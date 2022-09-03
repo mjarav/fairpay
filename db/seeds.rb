@@ -155,8 +155,5 @@ booking_2 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(
 booking_1 = Booking.create(start_date: Date.new(2022, 2, 9), end_date: Date.new(2022, 2, 9), user_id: andrea.id, service_id: spanish_lessons.id)
 booking_2 = Booking.create(start_date: Date.new(2022, 8, 5), end_date: Date.new(2022, 8, 5), user_id: boris.id, service_id: electrical_work.id)
 
-puts "Creating categories..."
-
-chatroom_1 = Chatroom.create(customer: andrea, provider: carlos, name: "testing")
 
 puts "Done"

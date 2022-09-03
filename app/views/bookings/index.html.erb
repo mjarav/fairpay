@@ -140,8 +140,8 @@
             <h3 class="dashboard-title"><strong>Pending</strong></h3>
             <p class="dashboard-title-explanation">Take a look at your received requests and provided services. Don't forget that the time-credits are transfered only if you confirm that you provided the service</p>
               <div class="dashboard-box">
-              <% if @bookings.blank? %>
-                <p class="dashboard-title-no-bookings"><em>No requests to confirm</em></p>
+              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today) %>
+                <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>
               <% else %>
                 <% @service_bookings.each do |booking| %>
                   <% if  booking.status == "accepted" && booking.start_date <= Date.today %>
@@ -187,7 +187,7 @@
             <p class="dashboard-title-explanation">Take a look at the upcoming services you are providing</p>
             <div class="dashboard-box">
               <% if @service_bookings.where(status: "accepted").empty? %>
-                <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>
+                <p class="dashboard-title-no-bookings"><em>No upcoming requests</em></p>
               <% else %>
                 <% @service_bookings.each do |booking| %>
                   <% if  booking.status == "accepted" && booking.start_date > Date.today %>

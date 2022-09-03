@@ -24,8 +24,8 @@
       </div>
       <div class="booking-confirmation-buttons">
         <% if @booking.status == "approve" %>
-          <%= link_to "Decline", decline_booking_path(@booking), method: :post, class:"btn-call-action-reverse"%>
           <%= link_to "Accept", accept_booking_path(@booking), method: :post, class:"btn-call-action"%>
+          <%= link_to "Decline", decline_booking_path(@booking), method: :post, class:"btn-call-action-reverse"%>
         <% end %>
       </div>
     </div>

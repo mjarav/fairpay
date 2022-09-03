@@ -39,3 +39,9 @@
   text-decoration: none;
   color: $red-fairpay;
 }
+
+.right-message {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}

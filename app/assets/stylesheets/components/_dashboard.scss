@@ -55,7 +55,6 @@
 
 .dashboard-hero-credit h3{
   margin-top: 8px;
-
 }
 
 .dashboard{
@@ -145,11 +144,12 @@
 
 
 .nav-pills .nav-link.active {
-    background-color: #6fbdb4;
+  background-color: #6fbdb4;
 }
 
 .dashboard-box {
-  overflow : scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 16px;
   height: 350px;
 

@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 class="chatroom-title">Chats</h2>
+  <ul><% @chatrooms.each do |item| %>
+    <li class= "chatroom-card">
+      <% if item.provider == current_user %>
+        <%= item.customer.first_name%>
+      <% else %>
+        <%= item.provider.first_name%>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>

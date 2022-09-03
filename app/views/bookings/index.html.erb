@@ -186,11 +186,11 @@
             <h3 class="dashboard-title"><strong>Upcoming services</strong></h3>
             <p class="dashboard-title-explanation">Take a look at the upcoming services you are providing</p>
             <div class="dashboard-box">
-              <% if @service_bookings.where(status: "accepted").empty?%>
+              <% if @service_bookings.where(status: "accepted").empty? %>
                 <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>
               <% else %>
                 <% @service_bookings.each do |booking| %>
-                  <% if  booking.status == "accepted"  %>
+                  <% if  booking.status == "accepted" && booking.start_date > Date.today %>
                     <li class= "dashboard-card">
                       <%= image_tag booking.service.category.image, width: 200 %>
                       <div class="dashboard-card-info">

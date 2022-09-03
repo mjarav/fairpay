@@ -90,8 +90,9 @@
             <p class="dashboard-title-explanation">Take a look at your sent requests and check the current status</p>
 
             <div class="dashboard-box">
-              <% if  @bookings.where(status: "declined").empty? || @service_bookings.where(status: "approve").empty?  %>
-                <p class="dashboard-title-no-bookings"><em>Book your first service!</em></p>
+              <% if @bookings.where(status: "declined").empty? && @bookings.where(status: "approve").empty? %>
+
+                <p class="dashboard-title-no-bookings"><em>No requests to show</em></p>
               <% else %>
                 <ul class= "list-group my-3">
                   <div class="row justify-content-start">
@@ -212,7 +213,7 @@
             <h3 class="dashboard-title"><strong>Requests</strong></h3>
             <p class="dashboard-title-explanation">Take a look at pasts requests and their status</p>
             <div class="dashboard-box">
-              <% if  @service_bookings.where(status: "completed").empty? || @service_bookings.where(status: "declined").empty? %>
+              <% if  @service_bookings.where(status: "completed").empty? && @service_bookings.where(status: "declined").empty? %>
                 <p class="dashboard-title-no-bookings"><em>No requests</em></p>
               <% else %>
                 <ul class= "list-group">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_27_144610) do
+ActiveRecord::Schema.define(version: 2022_08_30_184826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,9 +69,7 @@ ActiveRecord::Schema.define(version: 2022_08_27_144610) do
     t.bigint "provider_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "message_id"
     t.index ["customer_id"], name: "index_chatrooms_on_customer_id"
-    t.index ["message_id"], name: "index_chatrooms_on_message_id"
     t.index ["provider_id"], name: "index_chatrooms_on_provider_id"
   end
 
@@ -91,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_08_27_144610) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating", default: 0, null: false
     t.index ["service_id"], name: "index_reviews_on_service_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -136,7 +135,6 @@ ActiveRecord::Schema.define(version: 2022_08_27_144610) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "services"
   add_foreign_key "bookings", "users"
-  add_foreign_key "chatrooms", "messages"
   add_foreign_key "chatrooms", "users", column: "customer_id"
   add_foreign_key "chatrooms", "users", column: "provider_id"
   add_foreign_key "messages", "chatrooms"

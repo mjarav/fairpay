@@ -100,13 +100,14 @@
 .chatroom-card-body-message {
   display: flex;
   align-items: center;
+  font-style: italic;
+
 }
 
 .chatroom-card-body-message p{
   font-size: 16px;
   padding: 0 20px 0 6px;
   margin: 0;
-  font-style: italic;
   display:inline-block;
   width: 480px;
   white-space: nowrap;
@@ -115,6 +116,5 @@
 }
 
 .chatroom-card-body-message h6{
-  font-style: italic;
   margin: 0;
 }

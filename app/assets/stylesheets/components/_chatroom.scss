@@ -91,6 +91,11 @@
   padding-left: 10px;
   margin: 0;
   font-style: italic;
+  display:inline-block;
+  width:400px;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
 }
 
 .chatroom-card-body-message h6{

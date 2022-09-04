@@ -1,13 +1,40 @@
 <div class="container">
-  <h2 class="chatroom-title">Chats</h2>
-  <ul><% @chatrooms.each do |item| %>
-    <li class= "chatroom-card">
-      <% if item.provider == current_user %>
-        <%= item.customer.first_name%>
-      <% else %>
-        <%= item.provider.first_name%>
+  <div class="chats">
+    <h2 class="chatroom-title">Chats</h2>
+    <ul class= "list-group my-3">
+      <% @chatrooms.each do |item| %>
+        <%= link_to chatroom_path(item) do %>
+          <li class= "chatroom-card">
+            <% if item.provider == current_user %>
+              <% if item.customer.photo.attached? %>
+                <%= cl_image_tag item.customer.photo.key, height: 80, width: 80 %>
+              <% else %>
+                <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg", height: 80, width: 80, alt: "Profile Picture") %>
+              <% end %>
+              <div class="chatroom-card-body">
+                <h5><%= item.customer.first_name%> <%= item.customer.last_name%></h5>
+                <div class="chatroom-card-body-message">
+                  <h6><%= item.messages.last.user.first_name %>:</h6>
+                  <p><%= item.messages.last.content %></p>
+                </div>
+              </div>
+            <% else %>
+              <% if item.provider.photo.attached? %>
+                <%= cl_image_tag item.provider.photo.key, height: 80, width: 80 %>
+              <% else %>
+                <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg", height: 80, width: 80, alt: "Profile Picture") %>
+              <% end %>
+              <div class="chatroom-card-body">
+                <h5><%= item.provider.first_name%> <%= item.provider.last_name%></h5>
+                <div class="chatroom-card-body-message">
+                  <h6><%= item.messages.last.user.first_name %>:</h6>
+                  <p><%= item.messages.last.content %></p>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
-    </li>
-  <% end %>
-  </ul>
+    </ul>
+  </div>
 </div>

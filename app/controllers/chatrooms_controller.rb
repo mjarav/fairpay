@@ -1,7 +1,8 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.where(provider: current_user).or(Chatroom.where(customer: current_user))
-    @chatrooms = @chatrooms.sort { |a, b| (b.messages.last['created_at']) <=> (a.messages.last['created_at']) }
+    ## @chatrooms = @chatrooms.sort { |a, b| (b.messages.last['created_at']) <=> (a.messages.last['created_at']) }
+    @chatrooms = @chatrooms.sort_by{ |c| c.messages.last&.try(:[], 'created_at') || Date.today - 1.year }.reverse
   end
 
   def show

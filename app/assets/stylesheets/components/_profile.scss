@@ -73,13 +73,19 @@
 
   .profile-description {
     text-align: start;
+    margin-top: 30px;
   }
 
-  .profile-service a{
+
+  .profile-service a {
     text-decoration: none;
     color: $red-fairpay;
-    }
+  }
 
-  .profile-service a:hover{
+  .profile-service a:hover {
     color: $gray-fairpay;
+  }
+
+  .profile-service-box {
+    margin-top: 30px;
   }

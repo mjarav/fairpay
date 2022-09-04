@@ -28,7 +28,7 @@
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
 }
 
-.btn-search:hover{
+.btn-search:hover {
   opacity: 0.4;
 }
 
@@ -94,13 +94,13 @@
   opacity: 0.6;
 }
 
-.btn-pending{
-  opacity: 1;
-  background-color: $red-fairpay;
-  border: 1px solid $red-fairpay;
+.btn-pending {
+  // opacity: 1;
+  background-color: $gray-fairpay;
+  border: 1px solid $gray-fairpay;
 }
 
-.btn-pending:hover{
+.btn-pending:hover {
   transform: scale(1.1);
 }
 
@@ -113,12 +113,35 @@
   color: white;
 }
 
-.btn-accepted{
-  background-color: #59CE8F;
-  border: 1px solid #59CE8F;
+.btn-accepted {
+  background-color: #6fbdb4;
+  border: 1px solid #6fbdb4;
 }
 
-.btn-declined{
+.btn-declined {
   background-color: $gray-fairpay;
   border: 1px solid $gray-fairpay
+}
+
+.btn-give-review {
+
+  background-color: $gray-fairpay;
+  border: 1px solid $gray-fairpay
+}
+
+
+.btn-completed {
+  width: 50px;
+  opacity: 1;
+  background-color: #6fbdb4;
+  border: 1px solid #6fbdb4;
+  padding: 8px 8px;
+}
+
+.btn-not-completed {
+  width: 50px;
+  opacity: 1;
+  background-color: $red-fairpay;
+  border: 1px solid $red-fairpay;
+  padding: 8px 8px;
 }

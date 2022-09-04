@@ -13,6 +13,9 @@ class ReviewsController < ApplicationController
     @review.service = @service
     @review.user = current_user
     if @review.save
+      @booking_id = params[:booking][:id]
+      @booking = Booking.find(@booking_id)
+      @booking.review!
       redirect_to service_path(@service)
     else
       render "new"

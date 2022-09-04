@@ -1,11 +1,32 @@
 .dashboard-hero {
-background-color: #ECECEC;
-display: flex;
-justify-content: space-around;
-padding: 12px;
-position: relative;
-align-items: center;
-height: 180px;
+// background-color: #ECECEC;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  position: relative;
+  align-items: center;
+  height: 250px;
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-hero-img {
+  // background-image: url('https://cdn.pixabay.com/photo/2022/03/04/08/33/pattern-7046839_960_720.jpg');
+  // background-image: url('https://images.unsplash.com/photo-1546525506-495a7647977b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  // background-image: url('https://images.pexels.com/photos/707582/pexels-photo-707582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-image: url('https://images.pexels.com/photos/3257927/pexels-photo-3257927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .5;
+  width: 100%;
+  height: 100%;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
 .dashboard-hero-info{
@@ -14,10 +35,13 @@ height: 180px;
   text-align: center;
   position: absolute;
   align-items: center;
+  color: white;
+  filter: drop-shadow(2px 4px 0px $gray-fairpay);
 }
 
-.dashboard-hero-info h3{
-  color: $red-fairpay;
+.dashboard-hero-info h1{
+  margin: 16px 0px;
+  color: white;
 }
 
 .dashboard-hero-credit{
@@ -25,23 +49,36 @@ height: 180px;
   justify-content: center;
   text-align: center;
   margin-left: 50%;
+  color: white;
+  filter: drop-shadow(2px 4px 0px $gray-fairpay);
 }
 
-.dashboard-hero-credit h2{
-  background-color: white;
-  border-radius: 50%;
-  padding: 10px 20px;
+.dashboard-hero-credit h3{
+  margin-top: 8px;
 }
 
 .dashboard{
   background-color: white;
-  padding: 30px 0;
+  // padding: 30px 0;
 }
 
 .dashboard-title{
   font-size: 22px;
-  margin: 20px 0 35px 0;
+  margin: 30px 0 0 0;
   text-align: center;
+}
+
+.dashboard-title-explanation{
+  font-size:16px;
+  text-align: center;
+}
+
+
+.dashboard-title-no-bookings {
+  font-size: 22px;
+  margin: 100px 0 20px 0;
+  text-align: center;
+  color: $red-fairpay;
 }
 
 .dashboard-card{
@@ -83,7 +120,8 @@ height: 180px;
 
 .dashboard-card-status {
   color: $gray-fairpay;
-  left: 500px;
+  left: 430px;
+  // padding-right: 16px;
   text-align: center;
   position: absolute;
 }
@@ -93,9 +131,30 @@ height: 180px;
 }
 
 .status-accepted {
-  color: #59CE8F;
+  color: #6fbdb4;
 }
 
 .status-declined {
   color: $red-fairpay;
+}
+
+.status-completed {
+  color: #6fbdb4;
+}
+
+.status-reviewed {
+  color: #6fbdb4;
+}
+
+
+.nav-pills .nav-link.active {
+  background-color: #6fbdb4;
+}
+
+.dashboard-box {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 16px;
+  height: 350px;
+
 }

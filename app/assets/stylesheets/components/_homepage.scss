@@ -81,7 +81,8 @@
     border: none;
     border-radius: 15px;
     padding: 0px 15px 0px 15px;
-    height: 500px;
+    display: flex;
+    justify-content: center;
   }
 
 }
@@ -112,4 +113,5 @@
 .card-text {
   margin-bottom: 0px;
   margin-top: 5px;
+  text-align: center
 }

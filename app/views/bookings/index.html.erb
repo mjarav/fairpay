@@ -31,6 +31,7 @@
               <% if  @bookings.where(status: "completed").empty? && @bookings.where(status: "reviewed").empty? %>
                   <p class="dashboard-title-no-bookings"><em>No services to review</em></p>
               <% else %>
+
                 <% @bookings.each do |booking| %>
                   <% if booking.status == "completed" || booking.status == "reviewed"  %>
                     <li class= "dashboard-card">
@@ -63,43 +64,54 @@
             <h3 class="dashboard-title"><strong>Upcoming services</strong></h3>
             <p class="dashboard-title-explanation">Take a look at your upcoming services</p>
             <div class="dashboard-box">
-              <% if  @bookings.where(status: "accepted").empty? %>
+              <% if  @bookings.where(status: "accepted").empty? && @bookings.where(status: "approve").empty? %>
                 <p class="dashboard-title-no-bookings"><em>No upcoming services</em></p>
               <% else %>
+
                 <% @bookings.each do |booking| %>
-                  <% if booking.status == "accepted" %>
-                    <li class= "dashboard-card">
-                      <%= image_tag booking.service.category.image, width: 200 %>
-                      <div class="dashboard-card-info">
-                        <h5><%= booking.service.name%></h5>
-                        <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
-                        <p><i class="fas fa-map-marker-alt"></i>
-                        <%= booking.service.location%></p>
-                        <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
-                      </div>
-                      <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
-                        <%= booking.format_status_for(:customer) %></span>
-                    </li>
+                  <% unless booking.status == "completed" || booking.status == "reviewed" || booking.status == "declined" %>
+
+                      <li class= "dashboard-card">
+                        <%= image_tag booking.service.category.image, width: 200 %>
+                        <div class="dashboard-card-info">
+                          <p><%= booking.service.name%></p>
+                          <p><%= booking.start_date.strftime("%A, %b %d")%></p>
+                          <p><%= booking.service.location%></p>
+                          <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
+                        </div>
+
+                        <% case booking.status
+                            when "approve" %>
+                          <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i>
+                            <%= booking.format_status_for(:customer) %></span>
+                          <% when "accepted" %>
+                            <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
+                              <%= booking.format_status_for(:customer) %></span>
+                          <% end %>
+                      </li>
+
                   <% end %>
                 <% end %>
+
               <% end %>
             </div>
           </div>
 
           <div class="col-12">
-            <h3 class="dashboard-title"><strong>Requests</strong></h3>
-            <p class="dashboard-title-explanation">Take a look at your sent requests and check the current status</p>
+            <h3 class="dashboard-title"><strong>Declined requests</strong></h3>
+            <p class="dashboard-title-explanation">List of requests declined by the provider</p>
 
             <div class="dashboard-box">
-              <% if @bookings.where(status: "declined").empty? && @bookings.where(status: "approve").empty? %>
+              <% if @bookings.where(status: "declined").empty? %>
 
-                <p class="dashboard-title-no-bookings"><em>No requests to show</em></p>
+                <p class="dashboard-title-no-bookings"><em>No denied requests to show</em></p>
               <% else %>
+
                 <ul class= "list-group my-3">
                   <div class="row justify-content-start">
 
                     <% @bookings.each do |booking| %>
-                      <% unless booking.status == "completed" || booking.status == "accepted" || booking.status == "reviewed" %>
+                      <% if booking.status = "declined" %>
                         <div class="col-6">
                           <li class= "dashboard-card">
                             <%= image_tag booking.service.category.image, width: 200 %>
@@ -109,21 +121,16 @@
                               <p><%= booking.service.location%></p>
                               <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
                             </div>
-
-                            <% case booking.status
-                                when "approve" %>
-                              <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i>
-                                <%= booking.format_status_for(:customer) %></span>
-                              <% when "declined" %>
                               <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i>
                                 <%= booking.format_status_for(:customer) %></span>
-                              <% end %>
                           </li>
                         </div>
                       <% end %>
                     <% end %>
+
                   </div>
                 </ul>
+
               <% end %>
             </div>
           </div>

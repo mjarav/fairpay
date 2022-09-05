@@ -5,7 +5,7 @@
     <h4>Take a look at your dashboard</h4>
   </div>
   <div class= "dashboard-hero-credit">
-    <span><i class="far fa-clock fa-3x"></i><h3><%= current_user.credit %> credits</h3> </span>
+    <span><i class="far fa-clock fa-3x"></i><h3><%= pluralize(current_user.credit, 'credit' ) %></h3></span>
   </div>
 </div>
 
@@ -40,7 +40,8 @@
                         <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
                         <p><i class="fas fa-map-marker-alt"></i>
                         <%= booking.service.location%></p>
-                        <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                        <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
+
                       </div>
 
                       <% if booking.status == "reviewed" %>
@@ -74,7 +75,7 @@
                         <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%A, %b %d")%></p>
                         <p><i class="fas fa-map-marker-alt"></i>
                         <%= booking.service.location%></p>
-                        <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                        <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
                       </div>
                       <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
                         <%= booking.format_status_for(:customer) %></span>
@@ -106,7 +107,7 @@
                               <p><%= booking.service.name%></p>
                               <p><%= booking.start_date.strftime("%A, %b %d")%></p>
                               <p><%= booking.service.location%></p>
-                              <p><i class="fas fa-user"></i> Requested by <%= link_to booking.user.first_name, booking.user %></p>
+                              <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
                             </div>
 
                             <% case booking.status

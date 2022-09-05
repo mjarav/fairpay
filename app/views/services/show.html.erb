@@ -107,9 +107,9 @@
 
       <div class="average-rating">
         <% if @service.reviews.empty? %>
-          <p class="dashboard-title"><em>No reviews yet</em></p>
+          <p class="average-rating.title"><em>No reviews yet</em></p>
         <% else %>
-          <p class="dashboard-title">Reviews</p>
+          <p class="average-rating-title">Reviews</p>
           <div class="review-container">
             <% @service.reviews.each do |review| %>
               <div class="review-card">

@@ -25,7 +25,7 @@
         <div class="row">
 
           <div class="col-6">
-            <h3 class="dashboard-title"><strong>Review</strong></h3>
+            <h3 class="dashboard-title"><strong>Reviews</strong></h3>
             <p class="dashboard-title-explanation">Take a look at your received services and give your review</p>
             <div class="dashboard-box">
               <% if  @bookings.where(status: "completed").empty? && @bookings.where(status: "reviewed").empty? %>
@@ -139,7 +139,7 @@
 
           <div class="col-6">
             <h3 class="dashboard-title"><strong>Pending</strong></h3>
-            <p class="dashboard-title-explanation">Take a look at your received requests and provided services. Don't forget that the time-credits are transfered only if you confirm that you provided the service</p>
+            <p class="dashboard-title-explanation">Accept requests and confirm you provided the service to receive the your credit</p>
               <div class="dashboard-box">
               <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").empty? %>
                 <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>

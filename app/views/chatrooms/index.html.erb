@@ -12,12 +12,14 @@
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg", height: 80, width: 80, alt: "Profile Picture") %>
               <% end %>
               <div class="chatroom-card-body">
-                <h5><%= item.customer.first_name%> <%= item.customer.last_name%></h5>
+                <div class="chatroom-card-body-header">
+                  <h5><%= item.customer.first_name%> <%= item.customer.last_name%></h5>
+                  <p><%= item.messages.last.created_at.strftime("%b %e, %l:%M %p") %></p>
+                </div>
                 <div class="chatroom-card-body-message">
                   <h6><%= item.messages.last.user.first_name %>:</h6>
                   <p><%= item.messages.last.content %></p>
                 </div>
-                <%= item.messages.last.created_at %>
               </div>
             <% else %>
               <% if item.provider.photo.attached? %>

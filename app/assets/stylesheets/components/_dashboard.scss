@@ -146,15 +146,19 @@
   color: #6fbdb4;
 }
 
+.nav-pills .nav-link {
+  background-color: $green-fairpay;
+  color: rgb(158, 158, 158);
+}
 
 .nav-pills .nav-link.active {
-  background-color: #6fbdb4;
+  background-color: white;
+  color: $gray-fairpay;
 }
 
 .dashboard-box {
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 16px;
-  height: 600px;
-
+  height: 470px;
 }

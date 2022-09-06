@@ -1,6 +1,5 @@
 class Chatroom < ApplicationRecord
-  belongs_to :service
-  has_many :messages
+  has_many :messages, dependent: :destroy
   belongs_to :customer, class_name: "User"
   belongs_to :provider, class_name: "User"
 

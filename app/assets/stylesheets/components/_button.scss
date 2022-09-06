@@ -123,8 +123,36 @@
   border: 1px solid $gray-fairpay
 }
 
-.btn-give-review {
+.btn-chat{
+  background-color: $red-fairpay;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 20px 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
+.btn-chat:hover{
+  transform: scale(1.1);
+}
+
+.btn-chat-send{
+  background-color: $red-fairpay;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+
+.btn-give-review {
   background-color: $gray-fairpay;
   border: 1px solid $gray-fairpay
 }

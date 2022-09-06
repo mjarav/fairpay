@@ -1,0 +1,33 @@
+<div class="container chatroom"
+  data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+  data-chatroom-subscription-current-user-value="<%= current_user.id %>">
+
+  <h5 class="chatroom-title">Chat with
+  <% if current_user == @chatroom.customer %>
+    <%=link_to user_path(@chatroom.provider) do %>
+      <%= @chatroom.provider.first_name%> <%= @chatroom.provider.last_name%><% end %></h5>
+    <% else %>
+    <%=link_to user_path(@chatroom.customer) do %>
+      <%= @chatroom.customer.first_name%> <%= @chatroom.customer.last_name%><% end %></h5>
+  <% end %>
+
+
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@chatroom, @message],
+  remote: true,
+  html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
+%>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Send your message",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <button class="btn-chat"><%= f.submit "Send", class:"btn-chat-send"%><i class="far fa-paper-plane"></i></button>
+  <% end %>
+</div>

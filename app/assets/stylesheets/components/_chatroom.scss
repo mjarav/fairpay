@@ -1,0 +1,131 @@
+.chatroom {
+  background: white;
+  margin-top: 9px;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  h1 {
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: 0;
+    padding: 1rem;
+  }
+
+  .messages {
+    height: 100%;
+    overflow: scroll;
+    padding: 1rem;
+  }
+
+  #new_message {
+    border-top: 1px solid $gray-200;
+    padding: 1rem;
+
+    .form-group {
+      margin-bottom: 0;
+    }
+  }
+
+  .messages p {
+    max-width: 525px;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+}
+
+.chats{
+  width: 50%;
+  margin: auto;
+}
+
+.chats a{
+  text-decoration: none;
+}
+
+.right-message {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align-last: end;
+  line-break: strict;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+}
+
+
+.chatroom-title{
+  font-size: 26px;
+  margin: 20px 0 35px 0;
+  text-align: center;
+}
+
+.chatroom-title a{
+  text-decoration: none;
+  color: $red-fairpay;
+}
+
+.chatroom-card{
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  list-style-type: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  height: 100px;
+  padding: 10px;
+  width: 600px;
+}
+
+.chatroom-card img{
+  border-radius: 50%;
+}
+
+.chatroom-card-body{
+  margin-left: 20px;
+  color: $gray-fairpay;
+}
+
+.chatroom-card-body-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.chatroom-card-body-header p{
+  font-size: 16px;
+  align-self: center;
+  margin: 0;
+  padding-right: 20px;
+}
+
+.chatroom-card-body-header h5{
+  font-size: 20px;
+  align-self: center;
+  margin: 0;
+}
+
+.chatroom-card-body-message {
+  display: flex;
+  align-items: center;
+  font-style: italic;
+
+}
+
+.chatroom-card-body-message p{
+  font-size: 16px;
+  padding: 0 20px 0 0;
+  margin: 0;
+  display:inline-block;
+  width: 440px;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
+}
+
+.chatroom-card-body-message h6{
+  margin: 0 6px 0 0;
+}

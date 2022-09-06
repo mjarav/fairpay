@@ -80,14 +80,18 @@
                           <p><i class="fas fa-user"></i> Provided by <%= link_to booking.service.user.first_name, booking.service.user %></p>
                         </div>
 
-                        <% case booking.status
-                            when "approve" %>
+                        <% if booking.status == "approve" && booking.start_date >= Date.today %>
+
                           <span class="dashboard-card-status"><i class="fas fa-clock fa-lg"></i>
                             <%= booking.format_status_for(:customer) %></span>
-                          <% when "accepted" %>
+                          <% elsif booking.status == "approve" && booking.start_date < Date.today %>
+                            <% booking.status = "declined" %>
+                            <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i>
+                              <%= booking.format_status_for(:customer) %></span>
+                          <% elsif booking.status == "accepted" %>
                             <span class="dashboard-card-status status-accepted"><i class="fas fa-check-circle fa-lg"></i>
                               <%= booking.format_status_for(:customer) %></span>
-                          <% when "declined" %>
+                          <% elsif booking.status == "declined" %>
                             <span class="dashboard-card-status status-declined"><i class="fas fa-times-circle fa-lg"></i>
                               <%= booking.format_status_for(:customer) %></span>
                           <% end %>
@@ -136,6 +140,8 @@
                           method: :post %> </button>
                       </div>
                     </li>
+                  <% elsif booking.status == "approve" && booking.start_date < Date.today %>
+                    <% booking.status = "declined" %>
                   <% elsif booking.status == "approve" %>
                     <li class= "dashboard-card">
                       <%= image_tag booking.service.category.image, width: 200 %>
@@ -150,6 +156,8 @@
                         <%= link_to "Pending",
                           service_booking_path(booking.service, booking) %></button>
                     </li>
+
+
                   <% end %>
                 <% end %>
               <% end %>

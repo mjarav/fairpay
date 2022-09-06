@@ -1,20 +1,27 @@
 <div class="container mb-5 mt-3">
+  <h1 class= "text-center">Create your Service.</h1>
+  <div class="form_card">
+  <div class="row">
   <%= simple_form_for(@service) do |f| %>
-    <%= f.input :name, placeholder: 'Electrical Work' %>
-    <%= f.input :category_id, prompt: 'Please select a category', collection: Category.all  %>
-    <%= f.input :location, placeholder: 'Berlin' %>
-    <p class="py-1"><%= "Please choose your availability for this service:" %></p>
-    <ul class="list-inline <%= 'form-control is-invalid string required my-0 pb-0' if @service.errors.added?(:base, 'Select at least one day') %>" >
-      <li class="list-inline-item"><%= f.input :monday, as: :boolean %></li>
-      <li class="list-inline-item"><%= f.input :tuesday, as: :boolean %></li>
-      <li class="list-inline-item"><%= f.input :wednesday, as: :boolean %></li>
-      <li class="list-inline-item"><%= f.input :thursday, as: :boolean %></li>
-      <li class="list-inline-item"><%= f.input :friday, as: :boolean %></li>
-      <li class="list-inline-item"><%= f.input :saturday, as: :boolean %></li>
-      <li class="list-inline-item"><%= f.input :sunday, as: :boolean %></li>
-    </ul>
-    <div class="invalid-feedback d-block pb-3"><%= f.error :base %></div>
-    <%= f.input :description %>
-    <%= f.submit class: 'btn-call-action' %>
+    <div class="form-inputs">
+      <%= f.input :name, placeholder: 'Electrical Work', input_html: {class: "detail-container"} %>
+      <%= f.input :category_id, prompt: 'Please select a category', input_html: {class: "detail-container"}, collection: Category.all  %>
+      <%= f.input :location, placeholder: 'Berlin', input_html: {class: "detail-container"} %>
+      <p class="py-1"><%= "Please choose your availability for this service:" %></p>
+      <ul class="list-inline <%= 'form-control is-invalid string required my-0 pb-0' if @service.errors.added?(:base, 'Select at least one day') %>" >
+        <li class="list-inline-item"><%= f.input :monday, as: :boolean %></li>
+        <li class="list-inline-item"><%= f.input :tuesday, as: :boolean %></li>
+        <li class="list-inline-item"><%= f.input :wednesday, as: :boolean %></li>
+        <li class="list-inline-item"><%= f.input :thursday, as: :boolean %></li>
+        <li class="list-inline-item"><%= f.input :friday, as: :boolean %></li>
+        <li class="list-inline-item"><%= f.input :saturday, as: :boolean %></li>
+        <li class="list-inline-item"><%= f.input :sunday, as: :boolean %></li>
+      </ul>
+      <div class="invalid-feedback d-block pb-3"><%= f.error :base %></div>
+    </div>
+      <%= f.input :description %>
+      <%= f.submit class: 'btn-call-action' %>
   <% end %>
+  </div>
+  </div>
 </div>

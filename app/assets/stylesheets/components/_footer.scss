@@ -3,13 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 150px;
+  height: 120px;
   padding: 20px 50px;
   color: rgba(0,0,0,0.3);
 
   p{
-    margin-top: 16px;
-    font-size: 24px;
+    margin-top: 15px;
+    font-size: 19px;
   }
 }
 .footer-links {
@@ -20,7 +20,7 @@
   color: $gray-fairpay;
   opacity: 0.4;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 22px;
   padding: 0px 10px;
 }
 .footer-links a:hover {

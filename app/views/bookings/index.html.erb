@@ -118,11 +118,19 @@
             <h3 class="dashboard-title"><strong>Pending</strong></h3>
             <p class="dashboard-title-explanation">Accept requests and confirm you provided the service to receive the your credit</p>
               <div class="dashboard-box">
-              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").empty? %>
+              <% @service_bookings.each do |booking| %>
+                <% if booking.status == "approve" && booking.start_date < Date.today %>
+                  <% booking.status = "declined" %>
+                <% end %>
+              <% end %>
+
+              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").where("start_date > ?", Date.today).empty? %>
                 <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>
+
               <% else %>
                 <% @service_bookings.each do |booking| %>
-                  <% if  booking.status == "accepted" && booking.start_date <= Date.today %>
+
+                   <% if  booking.status == "accepted" && booking.start_date <= Date.today %>
                     <li class= "dashboard-card">
                       <%= image_tag booking.service.category.image, width: 200 %>
                       <div class="dashboard-card-info">
@@ -140,9 +148,8 @@
                           method: :post %> </button>
                       </div>
                     </li>
-                  <% elsif booking.status == "approve" && booking.start_date < Date.today %>
-                    <% booking.status = "declined" %>
-                  <% elsif booking.status == "approve" %>
+
+                  <% elsif booking.status == "approve" && booking.start_date >= Date.today %>
                     <li class= "dashboard-card">
                       <%= image_tag booking.service.category.image, width: 200 %>
                       <div class="dashboard-card-info">
@@ -169,7 +176,7 @@
             <p class="dashboard-title-explanation">Take a look at the upcoming services you are providing</p>
             <div class="dashboard-box">
               <% if @service_bookings.where(status: "accepted").empty? %>
-                <p class="dashboard-title-no-bookings"><em>No upcoming requests</em></p>
+                <p class="dashboard-title-no-bookings"><em>No upcoming services </em></p>
               <% else %>
                 <% @service_bookings.each do |booking| %>
                   <% if  booking.status == "accepted" && booking.start_date > Date.today %>

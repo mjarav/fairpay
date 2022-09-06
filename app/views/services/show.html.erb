@@ -110,10 +110,10 @@
           <p class="average-rating.title"><em>No reviews yet</em></p>
         <% else %>
           <p class="average-rating-title">Reviews</p>
-          <div class="review-container">
+          <div>
             <% @service.reviews.each do |review| %>
               <div class="review-card">
-                  <h6 class="card-title"><%= review.user.first_name %></h6>
+                  <h6 class="card-title"> <strong> <%= review.user.first_name %></strong></h6>
 
                     <% if review.user == current_user %>
 

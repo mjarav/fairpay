@@ -1,16 +1,8 @@
-.review-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 24px;
-  row-gap: 24px;
-  padding: 0px 24px 24px 0px;
-}
-
 .review-card {
   border-radius: 8px;
   box-shadow: 2px 2px 8px 1px rgba(0, 0 , 0, 0.2);
-  padding: 12px;
-  // max-height: 15vh;
+  padding: 24px 24px 12px;
+  margin: 14px;
   position: relative;
 
   & p {
@@ -28,8 +20,5 @@
 }
 
 .card-review-text {
-  width: 550px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+ margin: 16px 16px 16px 0;
 }

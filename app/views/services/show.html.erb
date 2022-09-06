@@ -107,13 +107,13 @@
 
       <div class="average-rating">
         <% if @service.reviews.empty? %>
-          <p class="dashboard-title"><em>No reviews yet</em></p>
+          <p class="average-rating.title"><em>No reviews yet</em></p>
         <% else %>
-          <p class="dashboard-title">Reviews</p>
-          <div class="review-container">
+          <p class="average-rating-title">Reviews</p>
+          <div>
             <% @service.reviews.each do |review| %>
               <div class="review-card">
-                  <h6 class="card-title"><%= review.user.first_name %></h6>
+                  <h6 class="card-title"> <strong> <%= review.user.first_name %></strong></h6>
 
                     <% if review.user == current_user %>
 

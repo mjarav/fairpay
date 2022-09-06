@@ -21,3 +21,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: white $green-fairpay;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $green-fairpay;
+  border-radius: 20px;
+  border: 3px solid $green-fairpay;
+}

@@ -124,7 +124,7 @@
                 <% end %>
               <% end %>
 
-              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").where("start_date > ?", Date.today).empty? %>
+              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").where("start_date >= ?", Date.today).empty? %>
                 <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>
 
               <% else %>

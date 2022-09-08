@@ -116,7 +116,7 @@
 
           <div class="col-6">
             <h3 class="dashboard-title"><strong>Pending</strong></h3>
-            <p class="dashboard-title-explanation">Accept requests and confirm you provided the service to receive the credit</p>
+            <p class="dashboard-title-explanation">Accept requests and confirm that you provided the service to receive your credit</p>
               <div class="dashboard-box">
               <% @service_bookings.each do |booking| %>
                 <% if booking.status == "approve" && booking.start_date < Date.today %>
@@ -124,7 +124,7 @@
                 <% end %>
               <% end %>
 
-              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").where("start_date > ?", Date.today).empty? %>
+              <% if @service_bookings.where(status: "accepted").where("start_date <= ?", Date.today).empty? && @service_bookings.where(status: "approve").where("start_date >= ?", Date.today).empty? %>
                 <p class="dashboard-title-no-bookings"><em>No pending requests</em></p>
 
               <% else %>

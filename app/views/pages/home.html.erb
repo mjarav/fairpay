@@ -1,7 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80); background-position: center;">
   <div class= "hero">
       <%= image_tag "fairpay-logo.png", class:"img" %>
-      <p><b>...because time is more than money</b></p>
+      <div class= "tagline" style= "margin-top: 15px;">
+      <p>Offer one hour of your time and request one hour for any service you need.</p>
+      <p>From packing to consulting to grocery shopping, be a part of a collaborative community.</p>
+      </div>
       <div class="homeglobal-searchbar">
       <%= form_tag services_path, method: :get, class:'d-flex' do %>
         <%= text_field_tag :query,
@@ -20,12 +23,13 @@
 </div>
 
 <div class="carousel container">
-<h1 class= "text-center"><b>Some of the services we provide</b></h1>
+<h1 class= "text-center"><b>Some of the offered services</b></h1>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="cards-wrapper">
         <div class="card">
+          <%= link_to service_path(44), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("business.png", alt: "Service Picture") %>
           </div>
@@ -35,19 +39,23 @@
             <p><i class="fas fa-user"></i> Monica</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
             </div>
+          <%end%>
         </div>
         <div class="card">
+          <%= link_to service_path(51), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("grammar.png", alt: "Service Picture") %>
           </div>
             <div class="carousel-text">
             <p>Education</p>
-            <h3>Spanish Lesson</h3>
+            <h3>Spanish lessons</h3>
             <p><i class="fas fa-user"></i> Carlos</p>
             <p><i class="fas fa-map-marker-alt"></i> Remote and Berlin</p>
             </div>
+          <%end%>
         </div>
         <div class="card">
+          <%= link_to service_path(50), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("trolley.png", alt: "Service Picture") %>
           </div>
@@ -57,12 +65,14 @@
             <p><i class="fas fa-user"></i> Frank</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
             </div>
+          <%end%>
         </div>
       </div>
     </div>
     <div class="carousel-item">
       <div class="cards-wrapper">
         <div class="card">
+        <%= link_to service_path(52), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("paint-brush.png", alt: "Service Picture") %>
           </div>
@@ -72,8 +82,10 @@
             <p><i class="fas fa-user"></i> Andrea</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin and Postdam</p>
             </div>
+          <%end%>
         </div>
         <div class="card">
+        <%= link_to service_path(54), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("business.png", alt: "Service Picture") %>
           </div>
@@ -83,8 +95,10 @@
             <p><i class="fas fa-user"></i> Boris</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin and Remote</p>
             </div>
+          <%end%>
         </div>
         <div class="card">
+        <%= link_to service_path(58), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("clock.png", alt: "Service Picture") %>
           </div>
@@ -94,12 +108,14 @@
             <p><i class="fas fa-user"></i> John</p>
             <p><i class="fas fa-map-marker-alt"></i> London and Remote</p>
             </div>
+          <%end%>
         </div>
       </div>
     </div>
     <div class="carousel-item">
       <div class="cards-wrapper">
         <div class="card">
+        <%= link_to service_path(57), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("sweep.png", alt: "Service Picture") %>
           </div>
@@ -109,28 +125,33 @@
             <p><i class="fas fa-user"></i> Carla</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
             </div>
+        <%end%>
         </div>
         <div class="card">
+        <%= link_to service_path(55), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("charity.png", alt: "Service Picture") %>
           </div>
             <div class="carousel-text">
             <p>Care</p>
-            <h3>Baby Sitting</h3>
+            <h3>Babysitting</h3>
             <p><i class="fas fa-user"></i> Carla</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
             </div>
+          <%end%>
         </div>
         <div class="card">
+        <%= link_to service_path(48), style: "text-decoration: none; color: #756C83;" do %>
           <div class="carousel-img">
           <%= image_tag("grammar.png", alt: "Service Picture") %>
           </div>
             <div class="carousel-text">
             <p>Education</p>
-            <h3>Guitar Lesson</h3>
+            <h3>Guitar Lessons</h3>
             <p><i class="fas fa-user"></i> Carlos</p>
             <p><i class="fas fa-map-marker-alt"></i> Berlin</p>
             </div>
+          <%end%>
         </div>
       </div>
     </div>
@@ -159,25 +180,25 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">This is <b>Anna</b>.</h5>
-            <p class="card-text">She is a single mother living in Berlin. Her passion is dancing, and she had been wanting to go for Salsa classes. Unfortunately, all courses were in the late afternoon when she had her little daughter at</p>
+            <p class="card-text">She is a single mother living in Berlin. Her passion is dancing, and she had been wanting to go to Salsa classes. Unfortunately, all her courses were in the late afternoon when she was Looking after her little daughter at home.</p>
           </div>
         </div>
       </div>
       <div class ="col-12 col-md-6 col-lg-4">
         <div class="card">
           <div class="card-body">
-            <p class="card-text">home. Thanks to <b>Fairpay</b> she found Carla who takes care of her daughter during her Salsa classes. She pays Carla with credits which</p>
+            <p class="card-text">Thanks to <b>Fairpay</b> she found Carla who takes care of her daughter during her Salsa classes. She pays Carla with credits which she earns</p>
           <div class="about-img">
             <%= image_tag("charity.png", alt: "Service Picture") %>
           </div>
-            <p class="card-text">she gets from grocery shopping for an elderly lady when her daughter is in Kindergarten. She is grateful to</p>
+            <p class="card-text">from grocery shopping for an elderly lady when her daughter is at Kindergarten. </p>
           </div>
         </div>
       </div>
       <div class ="col-12 col-md-6 col-lg-4">
         <div class="card">
           <div class="card-body">
-            <p class="card-text">have found an app, where she can offer her time to help someone and that gives her the opportunity to “pay” for a service that she needs and couldn't afford paying for every week. </p>
+            <p class="card-text">She is grateful to have found a web app, where she can offer her time to help someone and that gives her the opportunity to “pay” for a service that she needs and couldn't afford paying for every week. </p>
           <div class="about-img" style="margin-top: 15px;">
             <%= image_tag("clock.png", alt: "Service Picture") %>
           </div>

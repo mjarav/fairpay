@@ -2,16 +2,17 @@
   background: $green-fairpay;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 120px;
-  padding: 20px 50px;
+  justify-content: center;
+  padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 
-  p{
-    margin-top: 15px;
+  h5{
+    margin-top: 40px;
     font-size: 19px;
+    margin-bottom: 40px;
   }
 }
+
 .footer-links {
   display: flex;
   align-items: center;

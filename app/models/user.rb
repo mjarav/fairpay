@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  validates :first_name, :last_name, presence: true, allow_blank: false
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

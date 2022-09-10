@@ -11,6 +11,7 @@ puts "Cleaning the database..."
 Chatroom.destroy_all
 Service.destroy_all
 Category.destroy_all
+Review.destroy_all
 Booking.destroy_all
 User.destroy_all
 
@@ -35,7 +36,7 @@ frank.photo.attach(io: File.open('./app/assets/images/Frank.jfif'), filename: 'F
 monica = User.create!(email: "monica@gmail.com", password: "lewagon", first_name: "Monica",
   last_name: "Jara", nickname: "Mó", bio: "Hola! I am an economist currently
   working and studying web development at LeWagon in Berlin. I am a native German and Spanish
-  speaker. Check out my offers! ", language: "German and English", credit: 1)
+  speaker. Check out my offers! ", language: "German and English", credit: 4)
 monica.photo.attach(io: File.open('./app/assets/images/Monica.jpg'), filename: 'Monica.jpg')
 
 carlos = User.create!(email: "carlos@gmail.com", password: "lewagon", first_name: "Carlos",
@@ -113,7 +114,7 @@ packing = Service.create!(name: "Help packing", description: "If you have too mu
   monday: false, tuesday: true, wednesday: true, thursday: true, friday: false,
   saturday: true, sunday: true, user_id: frank.id, category_id: transport.id)
 
-moving = Service.create!(name: "Help moving", description: "I have a van and can help you
+moving = Service.create!(name: "Moving service", description: "I have a van and can help you
   move within Berlin and to it's surroundings. I can also help carrying your boxes
   and furniture", location: "Berlin", monday: false, tuesday: false, wednesday: false,
   thursday: false, friday: false, saturday: true, sunday: true, user_id: frank.id, category_id: transport.id)
@@ -157,10 +158,18 @@ psychological_advice = Service.create!(name: "Psychological advice", description
 
 puts "Creating bookings..."
 
-booking_1 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(2022, 4, 3), user_id: andrea.id, service_id: babysitting.id)
-booking_2 = Booking.create(start_date: Date.new(2022, 4, 3), end_date: Date.new(2022, 4, 3), user_id: carlos.id, service_id: electrical_advice.id)
-booking_1 = Booking.create(start_date: Date.new(2022, 2, 9), end_date: Date.new(2022, 2, 9), user_id: andrea.id, service_id: spanish_lessons.id)
-booking_2 = Booking.create(start_date: Date.new(2022, 8, 5), end_date: Date.new(2022, 8, 5), user_id: boris.id, service_id: electrical_work.id)
+booking_1 = Booking.create!(start_date: Date.today - 3, user_id: boris.id, service_id: dogsitting.id, status: "accepted", description: "Can you help me with my dog Nil, please?")
+booking_2 = Booking.create!(start_date: Date.today + 1, user_id: boris.id, service_id: dogsitting.id, description: "Can you help me with my dog Nil, please?")
+booking_3 = Booking.create!(start_date: Date.new(2022, 9, 5), user_id: monica.id, service_id: guitar_lessons.id, status: "completed", description: "Can you help me improve my skills? :)")
+booking_4 = Booking.create!(start_date: Date.new(2022, 7, 10), user_id: carlos.id, service_id: packing.id, status: "reviewed", description: "I need help packing! Can you help me please")
+booking_5 = Booking.create!(start_date: Date.new(2022, 5, 12), user_id: andrea.id, service_id: packing.id, status: "reviewed", description: "I need help packing! Are you available on Tuesday?")
+booking_6 = Booking.create!(start_date: Date.today + 15, user_id: andrea.id, service_id: dogsitting.id, status: "accepted", description: "Can you help me with my doggo? She's a cutie")
+
+
+puts "Creating reviews..."
+
+review_1 = Review.create!(service_id: packing.id, user_id: carlos.id, content: "Amazing guy! He's super nice and responsible", rating: 5)
+review_2 = Review.create!(service_id: packing.id, user_id: andrea.id, content: "I loved working with Frank! I can only recommend him", rating: 5)
 
 
 puts "Done"

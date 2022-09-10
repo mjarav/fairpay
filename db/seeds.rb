@@ -30,36 +30,43 @@ frank = User.create!(email: "frank@gmail.com", password: "lewagon", first_name: 
   living in Berlin. I'm currently launching my new app called 'BoxTag' (check it out!).
   Since I am an excellent driver and quite strong, I can help you out with packing and moving
   within the Berlin and it's surroundings.", language: "German and English", credit: 7)
+frank.photo.attach(io: File.open('./app/assets/images/Frank.jfif'), filename: 'Frank.jfif')
 
 monica = User.create!(email: "monica@gmail.com", password: "lewagon", first_name: "Monica",
   last_name: "Jara", nickname: "Mó", bio: "Hola! I am an economist currently
   working and studying web development at LeWagon in Berlin. I am a native German and Spanish
   speaker. Check out my offers! ", language: "German and English", credit: 1)
+monica.photo.attach(io: File.open('./app/assets/images/Monica.jpg'), filename: 'Monica.jpg')
 
 carlos = User.create!(email: "carlos@gmail.com", password: "lewagon", first_name: "Carlos",
  last_name: "Montero", nickname: "Carlitos", bio: "I am Carlos from Colombia. I have been living
   in Berlin since 2018 and work as a spanish and maths teacher in a local school.
   I am also a passionate guitar player", language: "Spanish and English", credit: 3)
+carlos.photo.attach(io: File.open('./app/assets/images/Carlos.jfif'), filename: 'Carlos.jfif')
 
 andrea = User.create!(email: "andrea@gmail.com", password: "lewagon", first_name: "Andrea",
  last_name: "Hoffmann", nickname: "Andy", bio: "Hey, I am Andrea from Potsdam. I am a professional
  electrician and can help you out with any kind of small installations in the house and with
  general advice. I am usually available on weekends.", language: "English and German", credit: 5)
+andrea.photo.attach(io: File.open('./app/assets/images/Andrea.jfif'), filename: 'Andrea.jfif')
 
 boris = User.create!(email: "boris@gmail.com", password: "lewagon", first_name: "Boris",
   last_name: "Gojak", nickname: "Boris", bio: "I am a professional tax advisor. I specialized in
   corporate tax and personal tax based on german law", language: "English and German", credit: 9)
+boris.photo.attach(io: File.open('./app/assets/images/Boris.jfif'), filename: 'Boris.jfif')
 
 carla = User.create!(email: "carla@gmail.com", password: "lewagon", first_name: "Carla",
   last_name: "Gui", nickname: "Carla", bio: "I am Carla from Spain and arrived a couples of
   weeks ago to Berlin. I love taking care of children and I am currently studying to be a
   nurse.", language: "English and Spanish", credit: 3)
+carla.photo.attach(io: File.open('./app/assets/images/Carla.jfif'), filename: 'Carla.jfif')
 
 john = User.create!(email: "john@gmail.com", password: "lewagon", first_name: "John",
   last_name: "Watson", nickname: "Johny", bio: "Greetings! I am a professional psychologist
   from England, specialized in anxiety disorders. I have my own practice in East London
   since 2009 and would be happy to give some advice to anyone who needs help.",
   language: "English and Spanish", credit: 3)
+john.photo.attach(io: File.open('./app/assets/images/John.jfif'), filename: 'John.jfif')
 
 puts "Creating services..."
 

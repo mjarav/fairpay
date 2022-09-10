@@ -37,7 +37,7 @@ monica = User.create!(email: "monica@gmail.com", password: "lewagon", first_name
   last_name: "Jara", nickname: "Mó", bio: "Hola! I am an economist currently
   working and studying web development at LeWagon in Berlin. I am a native German and Spanish
   speaker. Check out my offers! ", language: "German and English", credit: 4)
-monica.photo.attach(io: File.open('./app/assets/images/Monica.jpg'), filename: 'Monica.jpg')
+monica.photo.attach(io: File.open('./app/assets/images/Monicass.jpg'), filename: 'Monicass.jpg')
 
 carlos = User.create!(email: "carlos@gmail.com", password: "lewagon", first_name: "Carlos",
  last_name: "Montero", nickname: "Carlitos", bio: "I am Carlos from Colombia. I have been living
